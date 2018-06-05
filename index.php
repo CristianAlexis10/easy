@@ -1,4 +1,5 @@
 <?php
+require_once "model/conn.model.php";
 if (isset($_REQUEST['c'])) {
     $controller = $_REQUEST['c'];
     $controller = strtolower($controller);
@@ -6,7 +7,7 @@ if (isset($_REQUEST['c'])) {
     $controller = ucwords($controller)."Controller";
     $controller = new $controller;
     $action = $_REQUEST['a'] ? $_REQUEST['a']:"main";
-    call_user_func($controller,$action);
+    call_user_func(array($controller,$action));
 }else{
   $controller = "views";
   $controller = strtolower($controller);
