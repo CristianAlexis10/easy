@@ -1,0 +1,125 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  text-decoration: none;
+  outline: none;
+  /* TODO: colores */
+  --Orange: #fc7323;
+  --Green: #238276;
+  --Complement: #596548;
+  --White: #ffffff;
+  /* TODO: fuentes */
+  --Roboto: 'Roboto', sans-serif;
+  --Lato: 'Lato', sans-serif;
+}
+.wrapBackground{
+  width: 100%;
+  height: 100vh;
+  background: #bfe6b5;
+}
+.backgroundRight{
+  margin-left: 55%;
+  width: 45%;
+  height: 100vh;
+  background: #577e7c;
+}
+.wrapLogin{
+  position: absolute;
+  width: 60%;
+  height: 80vh;
+  background: #fff;
+  margin: 0px auto;
+  border-radius: 10px;
+  left: 250px;
+  top: 50px;
+  box-shadow: 0px 20px 50px -30px black;
+  display: flex;
+}
+.loginLeft{
+  position: relative;
+  width: 58%;
+  border-radius: 10px 0px 0px 10px;
+  height: 100%;
+}
+.efect{
+  border-radius: 10px 0px 0px 10px;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+}
+.loginLeft .backgroundLoginLeft{
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 0px 0px 10px;
+}
+.loginLeft p{
+  top: 70px;
+  position: absolute;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: var(--Roboto);
+  color: #fc7323;
+  z-index: 10;
+  font-size: 40px;
+  padding: 20px;
+}
+.logo{
+  width: 250px;
+  height: 250px;
+}
+.loginRight{
+  width: 42%;
+  height: 100%;
+  border-radius: 0px 20px 20px 0px;
+}
+.formLogin{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.wrapInput{
+  position: relative;
+  margin: 10px auto;
+  width: 70%;
+}
+.wrapInput:nth-child(1){
+  margin-bottom: 50px;
+}
+.wrapInput label{
+  position: absolute;
+  left: 7px;
+  bottom: 7px;
+  font-family: var(--Lato);
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #888888;
+  transition: .3s;
+}
+.wrapInput input{
+  border-radius: 10px;
+  border: 1px solid #b6b6b6;
+  padding: 7px;
+  width: 95%;
+}
+.wrapInput button{
+  margin-top: 25px;
+  margin-left: 45px;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  border: 1px solid #cc6021;
+  border-radius: 5px;
+  background: none;
+  cursor: pointer;
+}
+.wrapInput button:hover{
+  background: #fea36e;
+  color: #000;
+}
+.wrapInput input:focus ~ label,.wrapInput input:valid ~ label{
+  transform: translateY(-25px);
+  color: #000;
+  font-size: 14px;
+}
