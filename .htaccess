@@ -1,2 +1,6 @@
 RewriteEngine On
+#login
 RewriteRule ^inicio$ index.php
+RewriteRule ^validar-login$ index.php?c=auth&a=logIn
+#dashboard
+RewriteRule ^dashboard$ index.php?c=instructor

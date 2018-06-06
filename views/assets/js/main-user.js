@@ -3,10 +3,10 @@ $("#login").submit(function(e){
   e.preventDefault();
   if ($("#user").val() != "" && $("#password").val() != "") {
     $.ajax({
-      url:"",
-      type:"",
-      dataType:"",
-      data:({}),
+      url:"validar-login",
+      type:"post",
+      dataType:"json",
+      data:({user:$("#user").val(),pass:$("#password").val()}),
       success:function(result){
         if (result==true) {
             location.href="dashboard";
