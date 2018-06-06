@@ -5,20 +5,20 @@
     <img class="backgroundLoginLeft" src="views/assets/img/checklist-2077020_1280.jpg" alt="">
   </div>
   <div class="loginRight">
-    <form class="formLogin" action="index.html" id="login" method="post">
+    <form class="formLogin" id="login">
       <div class="wrapInput">
         <img class="logo" src="views/assets/img/logo.png" alt="">
       </div>
       <div class="wrapInput">
         <input id="user" type="text" name="data[]" value="" required>
-        <label for="">usuario</label>
+        <label for="user">usuario</label>
       </div>
       <div class="wrapInput">
         <input id="password" type="password" name="data[]" value="" required>
-        <label for="">contraseña</label>
+        <label for="password">contraseña</label>
       </div>
       <div class="wrapInput">
-        <button type="button" name="button">iniciar sesion</button>
+        <button type="submit" name="button">iniciar sesion</button>
       </div>
     </form>
   </div>

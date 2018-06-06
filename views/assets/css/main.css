@@ -97,6 +97,7 @@
   text-transform: capitalize;
   color: #888888;
   transition: .3s;
+  cursor: text;
 }
 .wrapInput input{
   border-radius: 10px;
