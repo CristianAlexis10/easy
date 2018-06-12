@@ -24,14 +24,14 @@ class UserController{
                 if ($data[9]==2) {
                     $result = $this->user->crearInstructor(array($dataUser['usu_codigo']));
                     if ($result == 1) {
-                      echo json_encode(true);
+                      echo json_encode("instructor");
                     }else{
                       echo json_encode("error al crear instructor: ".$result);
                     }
                 }else if($data[9]==3){
                     $result = $this->user->crearAprendiz(array($dataUser['usu_codigo']));
                     if ($result == 1) {
-                      echo json_encode(true);
+                      echo json_encode("aprendiz");
                     }else{
                       echo json_encode("error al crear aprendiz: ".$result);
                     }
@@ -50,6 +50,30 @@ class UserController{
     }else{
       echo  json_encode("Por favor llena todos los campos que son requeridos.");
     }
+  }
+
+  function crearInstructor(){
+    $data = $_POST['data'];
+    if (length($data) >= 0) {
+      foreach ($data as $row) {
+        $result = $this->user->crearInsXficha(array($_SESSION['ins'],$row));
+      }
+      if ($result==1) {
+        echo json_encode(true);
+      }else{
+        echo json_encode("Ocurrio un error: ".$result);
+      }
+    }else{
+      echo json_encode("por favor selecciona una ficha.");
+    }
+  }
+  function crearApren($data){
+        $result = $this->user->crearAprenXficha(array($_SESSION['apren'],$data));
+      if ($result==1) {
+        echo json_encode(true);
+      }else{
+        echo json_encode("Ocurrio un error: ".$result);
+      }
   }
 }
 ?>

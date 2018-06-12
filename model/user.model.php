@@ -27,6 +27,28 @@ class   UserModel{
     }
     return $result;
   }
+  function crearInsXficha($data){
+    try {
+      $sql="INSERT INTO instructor_ficha (id_ins,id_ficha) VALUES (?,?)";
+      $query=$this->pdo->prepare($sql);
+      $query->execute($data);
+      $result = true;
+    } catch (Exception $e) {
+      $result = $e->getMessage();
+    }
+    return $result;
+  }
+  function crearAprenXficha($data){
+    try {
+      $sql="INSERT INTO aprendizxficha (id_aprendiz,id_ficha) VALUES (?,?)";
+      $query=$this->pdo->prepare($sql);
+      $query->execute($data);
+      $result = true;
+    } catch (Exception $e) {
+      $result = $e->getMessage();
+    }
+    return $result;
+  }
   function crearInstructor($data){
     try {
       $sql="INSERT INTO instructor (usu_codigo) VALUES (?)";
