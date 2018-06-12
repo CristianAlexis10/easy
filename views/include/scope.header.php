@@ -9,3 +9,5 @@
   </head>
   <body>
     <section>
+      <?php require ("scope.topMenu.php"); ?>
+      <?php require ("scope.leftMenu.php"); ?>
