@@ -4,11 +4,6 @@
   list-style: none;
   text-decoration: none;
   outline: none;
-  /* TODO: colores */
-  --Orange: #ff6d20; /*naranja*/
-  --Green: #00877e; /*verde*/
-  --Complement: #63c04d; /*verde complementario*/
-  --Grey: #bebebe;
   /* TODO: fuentes */
   --Roboto: 'Roboto', sans-serif;
   --Lato: 'Lato', sans-serif;
@@ -37,13 +32,13 @@
 .wrapBackground{
   width: 100%;
   height: 100vh;
-  background: #bfe6b5;
+  background: #e8e8e8;
 }
 .backgroundRight{
   margin-left: 55%;
   width: 45%;
   height: 100vh;
-  background: #577e7c;
+  background: #576574;
 }
 .wrapLogin{
   position: absolute;
@@ -76,12 +71,12 @@
   border-radius: 10px 0px 0px 10px;
 }
 .loginLeft p{
-  top: 70px;
+  bottom: 0px;
   position: absolute;
   font-weight: bold;
   text-transform: uppercase;
   font-family: var(--Roboto);
-  color: #fc7323;
+  color: #fff;
   z-index: 10;
   font-size: 40px;
   padding: 20px;
@@ -128,18 +123,19 @@
   margin-left: 45px;
   padding: 10px 20px;
   text-transform: uppercase;
-  border: 1px solid #cc6021;
+  border: 1px solid #576574;
   border-radius: 5px;
   background: none;
   cursor: pointer;
+  transition: .2s;
 }
 .wrapInput button:hover{
-  background: #fea36e;
-  color: #000;
+  background: #576574;
+  color: #fff;
 }
 .wrapInput input:focus ~ label,.wrapInput input:valid ~ label{
   transform: translateY(-25px);
-  color: #000;
+  color: #576574;
   font-size: 14px;
 }
 /* TODO: estilos scope de top menu (admin) */
@@ -147,7 +143,6 @@
   width: 100%;
   height: 50px;
   background: #fff;
-  border-bottom: 2px solid var(--Green);
   display: flex;
   justify-content: space-between;
   align-items: center;
