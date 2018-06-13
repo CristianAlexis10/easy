@@ -3,5 +3,8 @@ RewriteEngine On
 RewriteRule ^inicio$ index.php
 RewriteRule ^validar-login$ index.php?c=auth&a=logIn
 #dashboard
-RewriteRule ^dashboard$ index.php?c=instructor
 RewriteRule ^finalizar$ index.php?c=auth&a=logOut
+RewriteRule ^dashboard$ index.php?c=admin
+RewriteRule ^asistencia$ index.php?c=admin&a=assistance
+RewriteRule ^perfil$ index.php?c=admin&a=profile
+RewriteRule ^ver-usuarios$ index.php?c=admin&a=viewUser
