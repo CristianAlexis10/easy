@@ -15,6 +15,7 @@ class AuthController{
         if (password_verify($pass,$dataAcesso['acc_contra'])) {
             $_SESSION['USER']['ID']=$issetUser['usu_codigo'];
             $_SESSION['USER']['NAME']=$issetUser['usu_nombre'];
+            $_SESSION['USER']['ROL']=$issetUser['rol_id'];
             $_SESSION['USER']['LAST_NAME']=$issetUser['usu_apellido'];
             echo json_encode(true);
         }else{
@@ -27,6 +28,10 @@ class AuthController{
       echo json_encode("Los campos son requeridos.");
     }
 
+  }
+  function logOut(){
+    session_destroy();
+    header("Location: inicio");
   }
 }
 ?>

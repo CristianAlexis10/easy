@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "model/conn.model.php";
 if (isset($_REQUEST['c'])) {
     $controller = $_REQUEST['c'];

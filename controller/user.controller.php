@@ -6,9 +6,13 @@ class UserController{
     $this->user = new UserModel();
   }
   function main(){
+    if (isset($_SESSION['USER']['ROL']) && $_SESSION['USER']['ROL']==1 ) {
       require_once "views/include/scope.header.php";
       require_once "views/modules/admin/user/index.php";
       require_once "views/include/scope.footer.php";
+    }else{
+      header("Location: inicio");
+    }
   }
   function crear(){
     $data  = $_POST['data'];
