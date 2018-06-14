@@ -47,3 +47,10 @@ $(document).ready(function(){
 		    }
 		});
 });
+// TODO: modales
+$("#search").click(function() {
+  $("#modalSearch").css("display","flex");
+});
+$("#closeSearch").click(function() {
+  $("#modalSearch").css("display","none");
+});

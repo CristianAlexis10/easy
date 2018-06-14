@@ -19,6 +19,49 @@
   width: 100%;
   min-height: 100%;
 }
+/* TODO: standar modal */
+.wrapModal{
+ position: fixed;
+ width: 100%;
+ height: 100vh;
+ top: 0px;
+ left: 0px;
+ background: rgba(0, 0, 0, 0.6);
+ z-index: 5;
+ display: none;
+ justify-content: center;
+ align-items: center;
+}
+.modal{
+  padding: 10px;
+  border-radius: 3px;
+  background: #fff;
+}
+/* TODO: estilo modal de busqueda */
+.formSearch .title{
+  font-family: var(--Lato);
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.formSearch .title span{
+  cursor: pointer;
+}
+.formSearch{
+  width: 300px;
+  height: 160px;
+}
+.formSearch .wrapInput{
+  margin-top: 30px;
+  width: 90%;
+}
+.formSearch .wrapInput button{
+  width: 100%;
+  margin: 0px;
+  padding: 7px;
+  /* margin-top: 5px; */
+}
 /* TODO: contenido usuario */
 .contentUser{
   margin: 90px 100px 20px 350px;
