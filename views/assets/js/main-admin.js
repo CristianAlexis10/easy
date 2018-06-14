@@ -26,3 +26,31 @@ $("#newUser").submit(function(e){
     setTimeout(function(){$("div.message").remove();},4000);
   }
 });
+// TODO: data table
+$(document).ready(function(){
+    $('.datatable').DataTable({
+		     "language":{
+		     "lengthMenu":"Mostrar: _MENU_",
+		     "zeroRecords": "No se encontraron registros",
+		           "info": "Página _PAGE_ de _PAGES_",
+		           "infoEmpty": "No hay registros aún.",
+		           "infoFiltered": "(filtrados de un total de _MAX_ registros)",
+		           "search" :"Buscar:",
+		           "LoadingRecords": "Cargando ...",
+		           "Processing": "Procesando...",
+		           "SearchPlaceholder": "Comience a teclear...",
+		           "previous": "Anterior",
+		           "paginate": {
+		           "previous": "Anterior",
+		           "next": "Siguiente",
+		   }
+		    }
+		});
+});
+// TODO: modales
+$("#search").click(function() {
+  $("#modalSearch").css("display","flex");
+});
+$("#closeSearch").click(function() {
+  $("#modalSearch").css("display","none");
+});
