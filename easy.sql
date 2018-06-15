@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-06-2018 a las 03:23:54
+-- Tiempo de generación: 15-06-2018 a las 05:47:34
 -- Versión del servidor: 10.1.8-MariaDB
 -- Versión de PHP: 5.6.14
 
@@ -38,6 +38,7 @@ CREATE TABLE `acceso` (
 --
 
 INSERT INTO `acceso` (`acc_token`, `acc_contra`, `acc_codigo`, `usu_codigo`) VALUES
+('7ea297125cb6546b81665ed12baa2c81', '$2y$10$dc9UmeuleBCtPeDWireYLuQweqxG0oEgG4xIZi0OKp5AT0KcpMIme', '', 11),
 ('jhgdasaddghhfdfghhgf', '$2y$10$qTD5VQmm/NYFKA6TeP0Yi.NCqBKGpXCCEFmr8hQcWSNHx.KBUaUie', '', 1);
 
 -- --------------------------------------------------------
@@ -120,7 +121,8 @@ CREATE TABLE `instructor` (
 --
 
 INSERT INTO `instructor` (`id_ins`, `usu_codigo`) VALUES
-(1, 1);
+(1, 1),
+(2, 11);
 
 -- --------------------------------------------------------
 
@@ -171,7 +173,9 @@ CREATE TABLE `rol_id` (
 --
 
 INSERT INTO `rol_id` (`rol_id`, `rol_nombre`) VALUES
-(1, 'admin');
+(1, 'admin'),
+(2, 'Instructor'),
+(3, 'Aprendiz');
 
 -- --------------------------------------------------------
 
@@ -191,6 +195,7 @@ CREATE TABLE `usuario` (
   `ciu_codigo` int(11) NOT NULL,
   `usu_direccion` varchar(100) NOT NULL,
   `rol_id` int(11) NOT NULL,
+  `tipo_documento` varchar(50) NOT NULL,
   `usu_estado` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -198,8 +203,9 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`usu_codigo`, `usu_identificacion`, `usu_nombre`, `usu_nombre2`, `usu_apellido`, `usu_apellido2`, `usu_correo`, `usu_celular`, `ciu_codigo`, `usu_direccion`, `rol_id`, `usu_estado`) VALUES
-(1, 9904, 'Cristian', '', 'lopera', '', 'dompi@gmail.com', 1231232, 1, 'sadas', 1, '');
+INSERT INTO `usuario` (`usu_codigo`, `usu_identificacion`, `usu_nombre`, `usu_nombre2`, `usu_apellido`, `usu_apellido2`, `usu_correo`, `usu_celular`, `ciu_codigo`, `usu_direccion`, `rol_id`, `tipo_documento`, `usu_estado`) VALUES
+(1, 9904, 'Cristian', '', 'lopera', '', 'dompi@gmail.com', 1231232, 1, 'sadas', 1, '', ''),
+(11, 99043, 'cristian', 'alexis', 'l', 'b', 'cristian@gmail.com', 3233557660, 1, 'calle 95', 2, 'Cedula de ciudadania', 'activo');
 
 --
 -- Índices para tablas volcadas
@@ -281,6 +287,7 @@ ALTER TABLE `rol_id`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`usu_codigo`),
+  ADD UNIQUE KEY `usu_identificacion` (`usu_identificacion`),
   ADD KEY `ciu_codigo` (`ciu_codigo`),
   ADD KEY `rol_id` (`rol_id`);
 
@@ -302,17 +309,17 @@ ALTER TABLE `aprendiz`
 -- AUTO_INCREMENT de la tabla `instructor`
 --
 ALTER TABLE `instructor`
-  MODIFY `id_ins` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_ins` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `rol_id`
 --
 ALTER TABLE `rol_id`
-  MODIFY `rol_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `rol_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `usu_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `usu_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- Restricciones para tablas volcadas
 --

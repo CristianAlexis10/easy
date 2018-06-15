@@ -16,6 +16,7 @@ class UserController{
   }
   function crear(){
     $data  = $_POST['data'];
+    $data[]="activo";
     if ($data[0]!="" && $data[1]!="" && $data[3]!="" && $data[5]!="" && $data[8]!="") {
         if (preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/",$data[5])){
             $result = $this->user->crear($data);

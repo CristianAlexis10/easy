@@ -7,7 +7,7 @@ class   UserModel{
   }
   function crear($data){
     try {
-      $sql="INSERT INTO usuario (usu_identificacion,usu_nombre,usu_nombre2,usu_apellido,usu_apellido2,usu_correo,usu_correo,ciu_codigo,ciu_codigo,rol_id,usu_estado) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+      $sql="INSERT INTO usuario (usu_identificacion,usu_nombre,usu_nombre2,usu_apellido,usu_apellido2,usu_correo,usu_celular,ciu_codigo,usu_direccion,rol_id,tipo_documento,usu_estado) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
       $query=$this->pdo->prepare($sql);
       $query->execute($data);
       $result = true;
@@ -98,7 +98,7 @@ class   UserModel{
       $sql="SELECT * FROM usuario INNER JOIN rol_id ON usuario.rol_id = rol_id.rol_id WHERE usu_identificacion = ?";
       $query=$this->pdo->prepare($sql);
       $query->execute(array($data));
-      $result = $query->fecth(PDO::FECTH_BOTH);
+      $result = $query->fetch(PDO::FETCH_BOTH);
     } catch (Exception $e) {
       $result = $e->getMessage();
     }
