@@ -1,6 +1,6 @@
 <div class="contentUser">
   <div class="title">
-    <h1>usuario</h1>
+    <h1>usuarios</h1>
   </div>
   <div class="wrapTable">
 
