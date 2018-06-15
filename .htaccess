@@ -8,3 +8,5 @@ RewriteRule ^dashboard$ index.php?c=admin
 RewriteRule ^asistencia$ index.php?c=admin&a=assistance
 RewriteRule ^perfil$ index.php?c=admin&a=profile
 RewriteRule ^ver-usuarios$ index.php?c=admin&a=viewUser
+RewriteRule ^crearUsuario$ index.php?c=user&a=crear
+RewriteRule ^editar-usuario-(\w+)$ index.php?c=admin&a=editProfile&data=$1

@@ -1,25 +1,43 @@
 $("#newUser").submit(function(e){
   e.preventDefault();
-  if ($("#nombre1").val() != "" && $("#apellido").val() != "" && $("#correo").val() != "" && $("#celular").val() != "" && $("#direccion").val() != "") {
+  if ($("#documento").val() != "" && $("#nombre1").val() != "" && $("#apellido").val() != "" && $("#correo").val() != "" && $("#celular").val() != "" && $("#direccion").val() != "") {
     var data = [];
+    data.push($("#documento").val());
     data.push($("#nombre1").val());
     data.push($("#nombre2").val());
     data.push($("#apellido").val());
     data.push($("#apellido2").val());
     data.push($("#correo").val());
     data.push($("#celular").val());
+    data.push($("#ciudad").val());
     data.push($("#direccion").val());
     data.push($("#rol").val());
+    data.push($("#tipodoc").val());
+    console.log(data);
     $.ajax({
       url:"crearUsuario",
       type:"post",
       dataType:"json",
       data:({data:data}),
       success:function(result){
-
+        console.log(result);
+        if (result==true) {
+            $("#newUser")[0].reset();
+            $("div.message").remove();
+            $("#newUser").after("<div class='message'>Creado Exitosamente.</div>");
+            setTimeout(function(){$("div.message").remove();},4000);
+        }else if(result=="instructor"){
+            location.href="asigar_fichas";
+        }else if(result=="aprendiz"){
+          location.href="asigar_fichas_aprendiz";
+        }else{
+          $("div.message").remove();
+          $("#newUser").after("<div class='message'>"+result+"</div>");
+          setTimeout(function(){$("div.message").remove();},4000);
+        }
       },
       error:function(result){console.log(result);}
-    })
+    });
   }else{
     $("div.message").remove();
     $("#newUser").after("<div class='message'>Todos los campos son requeridos.</div>");
