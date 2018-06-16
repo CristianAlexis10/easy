@@ -60,7 +60,6 @@
   width: 100%;
   margin: 0px;
   padding: 7px;
-  /* margin-top: 5px; */
 }
 /* TODO: contenido usuario */
 .contentUser{
@@ -83,7 +82,7 @@
 .contentUser .title h1{
   text-transform: uppercase;
 }
-.contentUser .title .optionModule{
+.contentUser .optionModule{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,14 +90,18 @@
 .formRegister ul{
   display: flex;
   justify-content: center;
+  align-items: center;
   border-bottom: 1px solid #bfbfbf;
 }
-.optionModule li{
+.optionModule a li{
   padding: 5px 20px;
   font-size: 18px;
   border: 1px solid #bfbfbf;
   margin-bottom: 5px;
   border-radius: 3px;
+  margin-left: 10px;
+  margin-right: 10px;
+  /* width: 20%; */
 }
 .optionModule a{
   color: #828282;
@@ -113,7 +116,6 @@
 }
 .contentUser .wrapInput input{
   border-radius: 4px;
-  /* width: 100%; */
 }
 .contentUser .wrapInput select{
   width: 97%;
@@ -121,6 +123,7 @@
   border-radius: 4px;
   text-transform: capitalize;
   color: #888888;
+  font-family: var(--Lato);
 }
 .contentUser .wrapInput:nth-last-child(1){
   margin: 10px auto;
@@ -203,6 +206,10 @@
   margin: 10px auto;
   width: 70%;
 }
+.wrapInput p{
+  font-family: var(--Lato);
+  text-transform: capitalize;
+}
 .wrapInput label{
   position: absolute;
   left: 7px;
@@ -245,7 +252,6 @@
   width: 100%;
   height: 70px;
   background: #2c3e50;
-  /* background: #fff; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -258,7 +264,6 @@
   width: 250px;
   height: 100%;
   background: #1abc9c;
-  /* background: #fff; */
   display: flex;
   align-items: center;
 }
@@ -320,7 +325,16 @@ table,th,tr,thead,tbody,td{
   font-family: var(--Lato);
   border: 1px solid #c6c6c6;
   text-align: center;
+  text-transform: capitalize;
 }
 td i{
   color: #000;
+}
+/* TODO: informacion */
+.wrapInfo{
+  font-family: var(--Lato);
+  position: relative;
+  margin: 10px auto;
+  width: 70%;
+  text-align: center;
 }
