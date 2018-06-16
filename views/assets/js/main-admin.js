@@ -27,9 +27,9 @@ $("#newUser").submit(function(e){
             $("#newUser").after("<div class='message'>Creado Exitosamente.</div>");
             setTimeout(function(){$("div.message").remove();},4000);
         }else if(result=="instructor"){
-            location.href="asigar_fichas";
+            location.href="asignar_fichas";
         }else if(result=="aprendiz"){
-          location.href="asigar_fichas_aprendiz";
+          location.href="asignar_fichas_aprendiz";
         }else{
           $("div.message").remove();
           $("#newUser").after("<div class='message'>"+result+"</div>");
