@@ -72,3 +72,9 @@ $("#search").click(function() {
 $("#closeSearch").click(function() {
   $("#modalSearch").css("display","none");
 });
+//select
+if (document.getElementById('selectMul')) {
+   $('#selectMul').multipleSelect({
+         placeholder: "Selecciona los campos"
+     });
+}
