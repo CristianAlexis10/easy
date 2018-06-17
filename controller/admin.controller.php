@@ -10,6 +10,10 @@ class AdminController{
       require_once "views/include/scope.header.php";
       require_once "views/modules/admin/user/index.php";
       require_once "views/include/scope.footer.php";
+    }else if(isset($_SESSION['USER']['ROL']) && $_SESSION['USER']['ROL']==2){
+      // require_once "views/include/scope.header.php";
+      require_once "views/modules/docente/index.php";
+      // require_once "views/include/scope.footer.php";
     }else{
       header("Location: inicio");
     }
