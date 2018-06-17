@@ -60,7 +60,7 @@
           </select>
         </div>
       <div class="wrapInput">
-        <button type="submit" name="button">editar</button>
+        <button type="submit" name="button">guardar</button>
       </div>
     </form>
   </div>
