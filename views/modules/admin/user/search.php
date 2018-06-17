@@ -29,7 +29,12 @@
                 <td><?php echo $row['rol_nombre'];?></td>
                 <td>
                   <a href="editar-usuario-<?php echo $row['usu_codigo'];?>"><i class="fas fa-edit"></i></a>
-                  <a href="#" onclick="inactivar_usuario(<?php echo $row['usu_codigo'];?>)"><i class="fas fa-user-times"></i></a>
+                  <?php
+                    if ($row['usu_estado']=="activo") {?>
+                      <a href="#" onclick="inactivar_usuario(<?php echo $row['usu_codigo'];?>)"><i class="fas fa-user-times"></i></a>
+                    <?php }else{?>
+                      <a href="#" onclick="activar_usuario(<?php echo $row['usu_codigo'];?>)"><i class="fas fa-user-plus  "></i></a>
+                  <?php  }   ?>
                 </td>
               </tr>
           <?php $id++; }?>

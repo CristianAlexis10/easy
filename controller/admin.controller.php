@@ -54,5 +54,32 @@ class AdminController{
       header("Location: inicio");
     }
   }
+  function readBy($data){
+    $result = $this->ins->readBy($data);
+    return $result;
+  }
+  function ciudades(){
+    $result = $this->ins->ciudades();
+    return $result;
+  }
+  function updateUser(){
+    $data = $_POST['data'];
+    if ($data[0]!="" && $data[1]!="" && $data[3]!="" && $data[5]!="" && $data[8]!="") {
+        if (preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/",$data[5])){
+            $result = $this->ins->modificarUsuario($data);
+            echo json_encode($result);
+        }else{
+          echo json_encode("formato del correo no valido");
+        }
+    }else{
+      echo json_encode("hay campos que son requeridos");
+    }
+  }
+  function cambiarEstado(){
+    $user = $_POST['user'];
+    $estado = $_POST['es'];
+    $result = $this->ins->cambiarEstado(array($estado,$user));
+    echo json_encode($result);
+  }
 }
 ?>
