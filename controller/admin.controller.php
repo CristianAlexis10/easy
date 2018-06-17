@@ -54,6 +54,15 @@ class AdminController{
       header("Location: inicio");
     }
   }
+  function viewDetail(){
+    if (isset($_SESSION['USER']['ROL']) && $_SESSION['USER']['ROL']==1 ) {
+      require_once "views/include/scope.header.php";
+      require_once "views/modules/admin/user/detail.php";
+      require_once "views/include/scope.footer.php";
+    }else{
+      header("Location: inicio");
+    }
+  }
   function readBy($data){
     $result = $this->ins->readBy($data);
     return $result;

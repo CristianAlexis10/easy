@@ -29,6 +29,7 @@
                 <td><?php echo $row['rol_nombre'];?></td>
                 <td>
                   <a href="editar-usuario-<?php echo $row['usu_codigo'];?>"><i class="fas fa-edit"></i></a>
+                  <a href="ver-usuario-<?php echo $row['usu_codigo'];?>"><i class="fas fa-eye"></i></a>
                   <?php
                     if ($row['usu_estado']=="activo") {?>
                       <a href="#" onclick="inactivar_usuario(<?php echo $row['usu_codigo'];?>)"><i class="fas fa-user-times"></i></a>
