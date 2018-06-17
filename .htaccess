@@ -13,6 +13,7 @@ RewriteRule ^cambiar_estado$ index.php?c=admin&a=cambiarEstado
 RewriteRule ^crearUsuario$ index.php?c=user&a=crear
 RewriteRule ^editar-usuario-(\w+)$ index.php?c=admin&a=editProfile&data=$1
 RewriteRule ^ver-usuario-(\w+)$ index.php?c=admin&a=viewDetail&data=$1
+RewriteRule ^ver-asistencia-(\w+)$ index.php?c=asistance&a=view&data=$1
 RewriteRule ^asignar_fichas_aprendiz$ index.php?c=aprendiz&a=asigar_fichas_aprendiz
 RewriteRule ^asignar_fichas$ index.php?c=instructor&a=asigar_fichas
 

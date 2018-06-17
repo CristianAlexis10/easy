@@ -15,16 +15,19 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>Ramiro</td>
-                <td>Barrientos</td>
-                <td>1355155</td>
+          <?php
+          $id = 1;
+           foreach ($this->readAll() as $row) { ?>
+              <tr>
+                <td><?php echo $id;?></td>
+                <td><?php echo $row['usu_nombre'];?></td>
+                <td><?php echo $row['usu_apellido'];?></td>
+                <td><?php echo $row['usu_identificacion'];?></td>
                 <td>
-                  <a href="#"><i class="fas fa-sync"></i></a>
-                  <a href="#"><i class="fas fa-trash-alt"></i></a>
+                  <a href="ver-asistencia-<?php echo $row['usu_codigo'];?>"><i class="fas fa-eye"></i></a>
                 </td>
-            </tr>
+              </tr>
+          <?php $id++; }?>
         </tbody>
       </table>
     </div>
