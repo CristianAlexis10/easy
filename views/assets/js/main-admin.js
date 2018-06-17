@@ -78,3 +78,66 @@ if (document.getElementById('selectMul')) {
          placeholder: "Selecciona los campos"
      });
 }
+
+function asignar_ficha_instructor(ficha,instructor,id){
+  $.ajax({
+    url:"asignar_ficha_instructor",
+    type:"post",
+    dataType:"json",
+    data:({ficha:ficha,instructor:instructor}),
+    success:function(result){if (result==true) {
+      location.reload();
+    }else{
+      alert(result);
+    }},
+    error:function(result){console.log(result);}
+  });
+}
+function asignar_ficha_aprendiz(ficha,aprendiz,id){
+  $.ajax({
+    url:"asignar_ficha_aprendiz_",
+    type:"post",
+    dataType:"json",
+    data:({ficha:ficha,aprendiz:aprendiz}),
+    success:function(result){if (result==true) {
+      location.reload();
+    }else{
+      alert(result);
+    }},
+    error:function(result){console.log(result);}
+  });
+}
+$("#endRegister").click(function(){
+  if (confirm("¿Terminar registro?")) {
+    $.ajax({
+      url:"terminar_registro",
+      type:"post",
+      dataType:"json",
+      success:function(result){
+        if (result==true) {
+          location.href ="dashboard";
+        }else{
+          alert(result);
+        }
+      },
+      error:function(result){console.log(result);}
+    });
+  }
+});
+$("#endRegisterAprendiz").click(function(){
+  if (confirm("¿Terminar registro?")) {
+    $.ajax({
+      url:"terminar_registro_aprendiz",
+      type:"post",
+      dataType:"json",
+      success:function(result){
+        if (result==true) {
+          location.href ="dashboard";
+        }else{
+          alert(result);
+        }
+      },
+      error:function(result){console.log(result);}
+    });
+  }
+});

@@ -1,5 +1,5 @@
 <?php
-class InstructorModel{
+class AprendizModel{
   private $pdo;
   function __CONSTRUCT(){
     $this->pdo = ConexionBD::openDB();
@@ -16,9 +16,9 @@ class InstructorModel{
     }
     return $result;
   }
-  function selectIns($data){
+  function selectApren($data){
     try {
-      $sql="SELECT * FROM instructor WHERE usu_codigo = ? ";
+      $sql="SELECT * FROM aprendiz WHERE usu_codigo = ? ";
       $query=$this->pdo->prepare($sql);
       $query->execute(array($data));
       $result = $query->fetch(PDO::FETCH_BOTH);
@@ -29,7 +29,7 @@ class InstructorModel{
   }
   function asigar_fichasSave($data){
     try {
-      $sql="INSERT INTO instructor_ficha (id_ins,id_ficha) VALUES (?,?)";
+      $sql="INSERT INTO aprendizxficha (id_aprendiz,id_ficha) VALUES (?,?)";
       $query=$this->pdo->prepare($sql);
       $query->execute($data);
       $result = true;
@@ -51,7 +51,7 @@ class InstructorModel{
   }
   function selectAllFichasBy($data){
     try {
-      $sql="SELECT * FROM instructor_ficha WHERE id_ins = ?";
+      $sql="SELECT * FROM aprendizxficha WHERE id_aprendiz = ?";
       $query=$this->pdo->prepare($sql);
       $query->execute(array($data));
       $result = $query->fetchAll(PDO::FETCH_BOTH);

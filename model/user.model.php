@@ -62,7 +62,7 @@ class   UserModel{
   }
   function crearAprendiz($data){
     try {
-      $sql="INSERT INTO aprendiz (usu_codigo) VALUES (?)";
+      $sql="INSERT INTO aprendiz (usu_codigo,fecha_registro) VALUES (?,?)";
       $query=$this->pdo->prepare($sql);
       $query->execute($data);
       $result = true;

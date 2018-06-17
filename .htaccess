@@ -12,3 +12,9 @@ RewriteRule ^crearUsuario$ index.php?c=user&a=crear
 RewriteRule ^editar-usuario-(\w+)$ index.php?c=admin&a=editProfile&data=$1
 RewriteRule ^asignar_fichas_aprendiz$ index.php?c=aprendiz&a=asigar_fichas_aprendiz
 RewriteRule ^asignar_fichas$ index.php?c=instructor&a=asigar_fichas
+
+
+RewriteRule ^asignar_ficha_instructor$ index.php?c=instructor&a=asigar_fichasSave
+RewriteRule ^terminar_registro$ index.php?c=instructor&a=endRegister
+RewriteRule ^terminar_registro_aprendiz$ index.php?c=aprendiz&a=endRegister
+RewriteRule ^asignar_ficha_aprendiz_$ index.php?c=aprendiz&a=asigar_fichasSave

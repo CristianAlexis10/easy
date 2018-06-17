@@ -29,13 +29,15 @@ class UserController{
                 if ($data[9]==2) {
                     $result = $this->user->crearInstructor(array($dataUser['usu_codigo']));
                     if ($result == 1) {
+                      $_SESSION['INS']=$dataUser['usu_codigo'];
                       echo json_encode("instructor");
                     }else{
                       echo json_encode("error al crear instructor: ".$result);
                     }
                 }else if($data[9]==3){
-                    $result = $this->user->crearAprendiz(array($dataUser['usu_codigo']));
+                    $result = $this->user->crearAprendiz(array($dataUser['usu_codigo'],date("Y-m-d")));
                     if ($result == 1) {
+                      $_SESSION['APREN']=$dataUser['usu_codigo'];
                       echo json_encode("aprendiz");
                     }else{
                       echo json_encode("error al crear aprendiz: ".$result);

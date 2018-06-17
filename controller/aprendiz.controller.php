@@ -14,5 +14,30 @@ class AprendizController{
       header("Location: inicio");
     }
   }
+
+  function selectAllFichas(){
+    $result = $this->apren->selectAllFichas();
+    return $result;
+  }
+  function selectAllFichasBy(){
+    $result = $this->apren->selectApren($_SESSION['APREN']);
+    $result = $this->apren->selectAllFichasBy($result['id_apre']);
+    return $result;
+  }
+  function asigar_fichasSave(){
+    $result = $this->apren->selectApren($_POST['aprendiz']);
+    $result = $this->apren->asigar_fichasSave(array($result['id_apre'],$_POST['ficha']));
+    echo json_encode($result);
+  }
+  function endRegister(){
+    $result = $this->apren->selectApren($_SESSION['APREN']);
+    $result = $this->apren->selectAllFichasBy($result['id_apre']);
+    if ($result==array()) {
+      echo json_encode("Selecciona al menos una ficha.");
+    }else{
+      unset($_SESSION['APREN']);
+      echo json_encode(true);
+    }
+  }
 }
 ?>
