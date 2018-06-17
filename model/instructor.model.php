@@ -60,5 +60,49 @@ class InstructorModel{
     }
     return $result;
   }
+  function readBy($data){
+    try {
+      $sql="SELECT * FROM usuario WHERE usu_codigo = ?";
+      $query=$this->pdo->prepare($sql);
+      $query->execute(array($data));
+      $result = $query->fetch(PDO::FETCH_BOTH);
+    } catch (Exception $e) {
+      $result = $e->getMessage();
+    }
+    return $result;
+  }
+  function ciudades($data){
+    try {
+      $sql="SELECT * FROM ciudad ";
+      $query=$this->pdo->prepare($sql);
+      $query->execute();
+      $result = $query->fetchAll(PDO::FETCH_BOTH);
+    } catch (Exception $e) {
+      $result = $e->getMessage();
+    }
+    return $result;
+  }
+  function cambiarEstado($data){
+    try {
+      $sql="UPDATE usuario SET usu_estado = ? WHERE usu_codigo = ?";
+      $query=$this->pdo->prepare($sql);
+      $query->execute($data);
+      $result = true;
+    } catch (Exception $e) {
+      $result = $e->getMessage();
+    }
+    return $result;
+  }
+  function modificarUsuario($data){
+    try {
+      $sql="UPDATE usuario SET usu_identificacion = ?, usu_nombre = ? , usu_nombre2 = ? , usu_apellido = ? , usu_apellido2 = ? ,usu_correo = ? ,usu_celular = ?, ciu_codigo  = ? , usu_direccion = ?, tipo_documento = ? WHERE usu_codigo = ? ";
+      $query=$this->pdo->prepare($sql);
+      $query->execute($data);
+      $result = true;
+    } catch (Exception $e) {
+      $result = $e->getMessage();
+    }
+    return $result;
+  }
 }
 ?>
