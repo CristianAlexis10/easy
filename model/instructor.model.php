@@ -7,7 +7,7 @@ class InstructorModel{
   }
   function selectAll(){
     try {
-      $sql="SELECT * FROM usuario INNER JOIN rol_id ON usuario.rol_id = rol_id.rol_id";
+      $sql="SELECT * FROM usuario INNER JOIN rol_id ON usuario.rol_id = rol_id.rol_id WHERE usuario.rol_id != 1";
       $query=$this->pdo->prepare($sql);
       $query->execute();
       $result = $query->fetchAll(PDO::FETCH_BOTH);
@@ -18,7 +18,7 @@ class InstructorModel{
   }
   function informacionInstructor($data){
     try {
-      $sql="SELECT * FROM usuario INNER JOIN rol_id ON usuario.rol_id = rol_id.rol_id INNER JOIN instructor ON usuario.usu_codigo = instructor.usu_codigo  WHERE usuario.usu_codigo = ? ";
+      $sql="SELECT * FROM usuario INNER JOIN rol_id ON usuario.rol_id = rol_id.rol_id INNER JOIN instructor ON usuario.usu_codigo = instructor.usu_codigo INNER JOIN ciudad ON usuario.ciu_codigo=ciudad.ciu_codigo WHERE usuario.usu_codigo = ? ";
       $query=$this->pdo->prepare($sql);
       $query->execute(array($data));
       $result = $query->fetch(PDO::FETCH_BOTH);
@@ -51,7 +51,7 @@ class InstructorModel{
   }
   function informacionAprendiz($data){
     try {
-      $sql="SELECT * FROM usuario INNER JOIN rol_id ON usuario.rol_id = rol_id.rol_id INNER JOIN aprendiz ON usuario.usu_codigo = aprendiz.usu_codigo WHERE usuario.usu_codigo = ? ";
+      $sql="SELECT * FROM usuario INNER JOIN rol_id ON usuario.rol_id = rol_id.rol_id INNER JOIN aprendiz ON usuario.usu_codigo = aprendiz.usu_codigo INNER JOIN ciudad ON usuario.ciu_codigo=ciudad.ciu_codigo WHERE usuario.usu_codigo = ? ";
       $query=$this->pdo->prepare($sql);
       $query->execute(array($data));
       $result = $query->fetch(PDO::FETCH_BOTH);
