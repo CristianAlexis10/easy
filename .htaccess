@@ -6,6 +6,7 @@ RewriteRule ^validar-login$ index.php?c=auth&a=logIn
 RewriteRule ^finalizar$ index.php?c=auth&a=logOut
 RewriteRule ^dashboard$ index.php?c=admin
 RewriteRule ^asistencia$ index.php?c=admin&a=assistance
+RewriteRule ^ver-asistencia$ index.php?c=asistance
 RewriteRule ^perfil$ index.php?c=admin&a=profile
 RewriteRule ^ver-usuarios$ index.php?c=admin&a=viewUser
 RewriteRule ^modificarUser$ index.php?c=admin&a=updateUser
@@ -29,3 +30,5 @@ RewriteRule ^editar-ficha-(\w+)$ index.php?c=fichas&a=viewUpdate&data=$1
 RewriteRule ^modificar_ficha$ index.php?c=fichas&a=update
 RewriteRule ^eliminar_ficha$ index.php?c=fichas&a=delete
 RewriteRule ^nueva_ficha$ index.php?c=fichas&a=newRegister
+
+RewriteRule ^actividades$ index.php?c=actividades
