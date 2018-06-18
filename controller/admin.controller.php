@@ -63,9 +63,13 @@ class AdminController{
       $dataUser = $this->AllInfo($_GET['data']);
     $informacion = $dataUser[0];
     $fichas = $dataUser[1];
-      // require_once "views/include/scope.header.php";
+    $ficha ="";
+    foreach ($fichas as $row) {
+      $ficha .=$row['id_ficha']."-";
+    }
+      require_once "views/include/scope.header.php";
       require_once "views/modules/admin/user/detail.php";
-      // require_once "views/include/scope.footer.php";
+      require_once "views/include/scope.footer.php";
     }else{
       header("Location: inicio");
     }
@@ -95,6 +99,10 @@ class AdminController{
     if ($data[0]!="" && $data[1]!="" && $data[3]!="" && $data[5]!="" && $data[8]!="") {
         if (preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/",$data[5])){
             $result = $this->ins->modificarUsuario($data);
+            if (isset($_POST['se'])) {
+              $_SESSION['USER']['NAME']=$data[1];
+              $_SESSION['USER']['LAST_NAME']=$data[3];
+            }
             echo json_encode($result);
         }else{
           echo json_encode("formato del correo no valido");
