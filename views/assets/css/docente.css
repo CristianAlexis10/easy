@@ -11,6 +11,9 @@
 * a{
   color: #000;
 }
+ul a li i{
+  margin-right: 5px;
+}
 .backgroundContent{
   background: #f1f1f1;
   position: absolute;
@@ -19,47 +22,83 @@
   width: 100%;
   min-height: 100%;
 }
+/* TODO: standar input */
+.wrapInput{
+  position: relative;
+  width: 90%;
+}
+.wrapInput p{
+  font-family: var(--Lato);
+  text-transform: capitalize;
+}
+.wrapInput label{
+  position: absolute;
+  left: 7px;
+  bottom: 7px;
+  font-family: var(--Lato);
+  font-size: 16px;
+  color: #888888;
+  transition: .3s;
+  cursor: text;
+}
+.wrapInput input{
+  border-radius: 4px;
+  border: 1px solid #b6b6b6;
+  padding: 7px;
+  width: 95%;
+}
+.wrapInput input:focus ~ label,.wrapInput input:valid ~ label{
+  transform: translateY(-25px);
+  color: #576574;
+  display: none;
+}
+/* TODO: standar modal */
+.wrapModal{
+ position: fixed;
+ width: 100%;
+ height: 100vh;
+ top: 0px;
+ left: 0px;
+ background: rgba(0, 0, 0, 0.6);
+ z-index: 5;
+ display: none;
+ justify-content: center;
+ align-items: center;
+}
+.modal{
+  padding: 10px;
+  border-radius: 3px;
+  background: #fff;
+}
 /* TODO topMenu del docente */
 .topMenu{
   width: 100%;
   height: 60px;
-  background: #2c3e50;
+  background: #bfbfbf;
+  /* background: #2c3e50; */
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   position: fixed;
   top: 0px;
   left: 0px;
-  z-index: 2;
-}
-.userName{
-  width: 60px;
-  height: 100%;
-  background: #1abc9c;
-  display: flex;
-  align-items: center;
-}
-.topMenu a h2{
-  font-family: var(--Roboto);
-  text-transform: capitalize;
-  padding-left: 10px;
+  z-index: 1;
 }
 .topMenu ul{
   display: flex;
   align-items: center;
 }
 .topMenu li{
-  padding: 16px 20px;
+  padding: 21px 20px 20px 20px;
   cursor: pointer;
-  color: #fff;
-  transition: .3s;
+  color: #090909;
 }
 .topMenu li:hover{
-  color: #1abc9c;
+  background: #d2d2d2;
 }
 /* TODO: leftMenu del docente */
 .leftMenu{
-  width: 60px;
+  width: 300px;
   height: 100vh;
   position: fixed;
   z-index: 1;
@@ -67,19 +106,55 @@
   left: 0px;
   top: 0px;
 }
+.userName{
+  width: 100%;
+  height: 60px;
+  /* background: #1abc9c; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .leftMenu ul{
-  margin-top: 75px;
+  margin-top: 10px;
 }
 .leftMenu li{
-  margin: 5px 0px;
+  margin: 0px 0px;
   padding: 20px 10px;
   font-family: var(--Lato);
   cursor: pointer;
-  color: #fff;
-  transition: .3s;
+  color: #f5f5f5;
+  transition: .1s;
 }
 .leftMenu li:hover{
-  color: #1abc9c;
+  color: #f5f5f5;
   background: #354d65;
-  border-left: 10px solid #1abc9c;
+  /* border-left: 10px solid #bfbfbf; */
+}
+/* TODO: contenido usuario */
+.contentUser{
+  margin: 90px 100px 20px 350px;
+  background: #fff;
+  border-radius: 3px;
+  padding: 10px;
+  box-shadow: 0 0 20px -10px #000;
+}
+.contentUser .title{
+  margin: 0px auto;
+  font-family: var(--Roboto);
+  display: flex;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-bottom: 5px;
+}
+.contentUser .title h1{
+  text-transform: uppercase;
+}
+.contentUser .textContent{
+  margin: 0px auto;
+  font-family: var(--Lato);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
