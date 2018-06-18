@@ -1,0 +1,85 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  text-decoration: none;
+  outline: none;
+  /* TODO: fuentes */
+  --Roboto: 'Roboto', sans-serif;
+  --Lato: 'Lato', sans-serif;
+}
+* a{
+  color: #000;
+}
+.backgroundContent{
+  background: #f1f1f1;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  min-height: 100%;
+}
+/* TODO topMenu del docente */
+.topMenu{
+  width: 100%;
+  height: 60px;
+  background: #2c3e50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+}
+.userName{
+  width: 60px;
+  height: 100%;
+  background: #1abc9c;
+  display: flex;
+  align-items: center;
+}
+.topMenu a h2{
+  font-family: var(--Roboto);
+  text-transform: capitalize;
+  padding-left: 10px;
+}
+.topMenu ul{
+  display: flex;
+  align-items: center;
+}
+.topMenu li{
+  padding: 16px 20px;
+  cursor: pointer;
+  color: #fff;
+  transition: .3s;
+}
+.topMenu li:hover{
+  color: #1abc9c;
+}
+/* TODO: leftMenu del docente */
+.leftMenu{
+  width: 60px;
+  height: 100vh;
+  position: fixed;
+  z-index: 1;
+  background: #2c3e50;
+  left: 0px;
+  top: 0px;
+}
+.leftMenu ul{
+  margin-top: 75px;
+}
+.leftMenu li{
+  margin: 5px 0px;
+  padding: 20px 10px;
+  font-family: var(--Lato);
+  cursor: pointer;
+  color: #fff;
+  transition: .3s;
+}
+.leftMenu li:hover{
+  color: #1abc9c;
+  background: #354d65;
+  border-left: 10px solid #1abc9c;
+}
