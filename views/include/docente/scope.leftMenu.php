@@ -1,9 +1,8 @@
 <div class="leftMenu">
   <div class="userName">
     <div class="wrapInput">
-      <input required type="text" name="" value="">
-      <!-- <label for=""><i class="fas fa-search"></i> Buscar ficha</label> -->
-      <label for=""><i class="fab fa-sistrix"></i> Buscar ficha</label>
+      <input required type="text" name="" value="" placeholder="Buscar ficha">
+      <!-- <label for=""><i class="fab fa-sistrix"></i> Buscar ficha</label> -->
     </div>
   </div>
   <ul>
