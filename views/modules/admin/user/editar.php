@@ -2,7 +2,7 @@
 <div class="contentUser">
   <form class="formRegister" id="UpdateUser">
     <div class="title">
-      <h1>editar usuario</h1>
+      <h1>editar usuario puto el que lo lea</h1>
     </div>
         <div class="wrapInput">
           <select placeholder="seleccionar tipo de documento" class="" id="tipodoc" name="">

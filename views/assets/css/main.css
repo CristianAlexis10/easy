@@ -334,7 +334,27 @@ td i{
 .wrapInfo{
   font-family: var(--Lato);
   position: relative;
-  margin: 10px auto;
+  margin: 30px auto;
   width: 70%;
   text-align: center;
+  text-transform: capitalize;
+}
+.wrapInfo label{
+  font-weight: bold;
+  margin-right: 3px;
+}
+.column2 .wrapInfo:nth-child(2) span{
+  text-transform: lowercase;
+}
+.wrapColumns{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 1px solid black;
+}
+.column1, .column2{
+  width: 50%;
 }

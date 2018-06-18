@@ -3,7 +3,6 @@
       <h1>asignar ficha</h1>
     </div>
     <div class="wrapTable">
-      <a href="#" id="endRegister">Terminar Registro</a>
     <table class="datatable">
           <thead>
               <tr>
@@ -35,5 +34,9 @@
             <?php $id++; }?>
           </tbody>
         </table>
+      </div>
+      <div class="optionModule">
+
+        <a href="#" id="endRegister"><li>Terminar Registro</li></a>
       </div>
 </div>
