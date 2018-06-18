@@ -28,7 +28,7 @@
 				// qr detectado
 				resultFunction: function(text, imgSrc) {
 					$.ajax({
-						url:"validar.php",
+						url:"agregarAlListado",
 						type:"post",
 						dataType:"json",
 						data:({data:text}),
