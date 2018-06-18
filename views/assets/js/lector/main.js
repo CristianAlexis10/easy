@@ -74,6 +74,7 @@
 					spAll.hide();
 					pl.show();
 					sv.addClass('disabled');
+					location.href= "actividades";
 					sQ.text('Finalizado');
 					decoder.data().plugin_WebCodeCam.cameraStopAll();
 				}
