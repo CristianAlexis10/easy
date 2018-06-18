@@ -60,12 +60,27 @@ class AdminController{
   }
   function viewDetail(){
     if (isset($_SESSION['USER']['ROL']) && $_SESSION['USER']['ROL']==1 ) {
-      require_once "views/include/scope.header.php";
+      $dataUser = $this->AllInfo($_GET['data']);
+    $informacion = $dataUser[0];
+    $fichas = $dataUser[1];
+      // require_once "views/include/scope.header.php";
       require_once "views/modules/admin/user/detail.php";
-      require_once "views/include/scope.footer.php";
+      // require_once "views/include/scope.footer.php";
     }else{
       header("Location: inicio");
     }
+  }
+  function AllInfo($data){
+    $data = $this->readBy($data);
+    if ($data['rol_id']==2) {
+      // instructor
+      $result = $this->ins->informacionInstructor($data['usu_codigo']);
+      $fichas = $this->ins->fichasInstructor($result['id_ins']);
+    }else if($data['rol_id']==3){
+      $result = $this->ins->informacionAprendiz($data['usu_codigo']);
+      $fichas = $this->ins->fichasAprendiz($data['usu_codigo']);
+    }
+    return array($result,$fichas);
   }
   function readBy($data){
     $result = $this->ins->readBy($data);

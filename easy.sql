@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-06-2018 a las 05:47:34
+-- Tiempo de generación: 18-06-2018 a las 03:39:29
 -- Versión del servidor: 10.1.8-MariaDB
 -- Versión de PHP: 5.6.14
 
@@ -38,6 +38,8 @@ CREATE TABLE `acceso` (
 --
 
 INSERT INTO `acceso` (`acc_token`, `acc_contra`, `acc_codigo`, `usu_codigo`) VALUES
+('09294ce3814019acac495d055444c358', '$2y$10$/Na0FUGFVwRWG8iBtj.Pyu35CVt2mvFPIT3w78nbzlar1r.It2/hi', '', 14),
+('2236796a2c51ded4c4a5358d2177f6ef', '$2y$10$zKIZ2/4Ds0wx/TEfsdY/tuxfVW71CkcAcqQqivFw2dEb4OSc1ZAyy', '', 12),
 ('7ea297125cb6546b81665ed12baa2c81', '$2y$10$dc9UmeuleBCtPeDWireYLuQweqxG0oEgG4xIZi0OKp5AT0KcpMIme', '', 11),
 ('jhgdasaddghhfdfghhgf', '$2y$10$qTD5VQmm/NYFKA6TeP0Yi.NCqBKGpXCCEFmr8hQcWSNHx.KBUaUie', '', 1);
 
@@ -66,9 +68,15 @@ CREATE TABLE `actividad` (
 CREATE TABLE `aprendiz` (
   `id_apre` int(11) NOT NULL,
   `usu_codigo` int(11) NOT NULL,
-  `fic_codigo` int(11) NOT NULL,
   `fecha_registro` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `aprendiz`
+--
+
+INSERT INTO `aprendiz` (`id_apre`, `usu_codigo`, `fecha_registro`) VALUES
+(2, 14, '2018-06-17');
 
 -- --------------------------------------------------------
 
@@ -80,6 +88,13 @@ CREATE TABLE `aprendizxficha` (
   `id_aprendiz` int(11) NOT NULL,
   `id_ficha` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `aprendizxficha`
+--
+
+INSERT INTO `aprendizxficha` (`id_aprendiz`, `id_ficha`) VALUES
+(2, 1355152);
 
 -- --------------------------------------------------------
 
@@ -96,6 +111,25 @@ CREATE TABLE `asistencia` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `ciudad`
+--
+
+CREATE TABLE `ciudad` (
+  `ciu_codigo` int(11) NOT NULL,
+  `ciu_nombre` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `ciudad`
+--
+
+INSERT INTO `ciudad` (`ciu_codigo`, `ciu_nombre`) VALUES
+(1, 'medellin'),
+(2, 'bogota');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `ficha`
 --
 
@@ -104,6 +138,14 @@ CREATE TABLE `ficha` (
   `nom_ficha` varchar(100) DEFAULT NULL,
   `id_jor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `ficha`
+--
+
+INSERT INTO `ficha` (`id_ficha`, `nom_ficha`, `id_jor`) VALUES
+(1355152, 'adsi', 2),
+(1355155, 'ADSI\r\n', 2);
 
 -- --------------------------------------------------------
 
@@ -122,7 +164,8 @@ CREATE TABLE `instructor` (
 
 INSERT INTO `instructor` (`id_ins`, `usu_codigo`) VALUES
 (1, 1),
-(2, 11);
+(2, 11),
+(3, 12);
 
 -- --------------------------------------------------------
 
@@ -134,6 +177,14 @@ CREATE TABLE `instructor_ficha` (
   `id_ins` int(11) DEFAULT NULL,
   `id_ficha` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `instructor_ficha`
+--
+
+INSERT INTO `instructor_ficha` (`id_ins`, `id_ficha`) VALUES
+(NULL, 1355155),
+(3, 1355155);
 
 -- --------------------------------------------------------
 
@@ -204,8 +255,10 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`usu_codigo`, `usu_identificacion`, `usu_nombre`, `usu_nombre2`, `usu_apellido`, `usu_apellido2`, `usu_correo`, `usu_celular`, `ciu_codigo`, `usu_direccion`, `rol_id`, `tipo_documento`, `usu_estado`) VALUES
-(1, 9904, 'Cristian', '', 'lopera', '', 'dompi@gmail.com', 1231232, 1, 'sadas', 1, '', ''),
-(11, 99043, 'cristian', 'alexis', 'l', 'b', 'cristian@gmail.com', 3233557660, 1, 'calle 95', 2, 'Cedula de ciudadania', 'activo');
+(1, 9904, 'Cristian', '', 'lopera', '', 'dompi@gmail.com', 1231232, 2, 'sadas', 1, 'Tarjeta de identidad', 'activo'),
+(11, 99043, 'cristian', 'alexis', 'l', 'b', 'cristian@gmail.com', 3233557660, 1, 'calle 95', 2, 'Cedula de ciudadania', 'activo'),
+(12, 123213, 'cristian', 'alexis', 'lopera', 'bedoya', 'cristian@gmail.com', 3233557660, 1, 'calle 95', 2, 'Cedula de ciudadania', 'activo'),
+(14, 324324, '3243', '324', '234', '34234', 'cristian@gmail.com', 324, 2, '234324', 3, 'Cedula de ciudadania', 'activo');
 
 --
 -- Índices para tablas volcadas
@@ -232,8 +285,7 @@ ALTER TABLE `actividad`
 --
 ALTER TABLE `aprendiz`
   ADD PRIMARY KEY (`id_apre`),
-  ADD KEY `usu_codigo` (`usu_codigo`),
-  ADD KEY `fic_codigo` (`fic_codigo`);
+  ADD KEY `usu_codigo` (`usu_codigo`);
 
 --
 -- Indices de la tabla `aprendizxficha`
@@ -248,6 +300,12 @@ ALTER TABLE `aprendizxficha`
 ALTER TABLE `asistencia`
   ADD KEY `id_actividad` (`id_actividad`),
   ADD KEY `id_apren` (`id_apren`);
+
+--
+-- Indices de la tabla `ciudad`
+--
+ALTER TABLE `ciudad`
+  ADD PRIMARY KEY (`ciu_codigo`);
 
 --
 -- Indices de la tabla `ficha`
@@ -304,12 +362,17 @@ ALTER TABLE `actividad`
 -- AUTO_INCREMENT de la tabla `aprendiz`
 --
 ALTER TABLE `aprendiz`
-  MODIFY `id_apre` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_apre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `ciudad`
+--
+ALTER TABLE `ciudad`
+  MODIFY `ciu_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `instructor`
 --
 ALTER TABLE `instructor`
-  MODIFY `id_ins` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_ins` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `rol_id`
 --
@@ -319,7 +382,7 @@ ALTER TABLE `rol_id`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `usu_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `usu_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- Restricciones para tablas volcadas
 --
@@ -334,14 +397,14 @@ ALTER TABLE `acceso`
 -- Filtros para la tabla `actividad`
 --
 ALTER TABLE `actividad`
-  ADD CONSTRAINT `actividad_ibfk_1` FOREIGN KEY (`id_ins`) REFERENCES `instructor_ficha` (`id_ins`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `actividad_ibfk_1` FOREIGN KEY (`id_ins`) REFERENCES `instructor_ficha` (`id_ins`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `actividad_ibfk_2` FOREIGN KEY (`id_ficha`) REFERENCES `ficha` (`id_ficha`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `aprendiz`
 --
 ALTER TABLE `aprendiz`
-  ADD CONSTRAINT `aprendiz_ibfk_1` FOREIGN KEY (`usu_codigo`) REFERENCES `usuario` (`usu_codigo`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `aprendiz_ibfk_2` FOREIGN KEY (`id_apre`) REFERENCES `asistencia` (`id_apren`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `aprendiz_ibfk_1` FOREIGN KEY (`usu_codigo`) REFERENCES `usuario` (`usu_codigo`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `aprendizxficha`
@@ -354,14 +417,14 @@ ALTER TABLE `aprendizxficha`
 -- Filtros para la tabla `asistencia`
 --
 ALTER TABLE `asistencia`
-  ADD CONSTRAINT `asistencia_ibfk_1` FOREIGN KEY (`id_actividad`) REFERENCES `actividad` (`id_act`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `asistencia_ibfk_1` FOREIGN KEY (`id_actividad`) REFERENCES `actividad` (`id_act`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `asistencia_ibfk_2` FOREIGN KEY (`id_apren`) REFERENCES `aprendiz` (`id_apre`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `ficha`
 --
 ALTER TABLE `ficha`
-  ADD CONSTRAINT `ficha_ibfk_1` FOREIGN KEY (`id_jor`) REFERENCES `jornada` (`id_jor`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `ficha_ibfk_2` FOREIGN KEY (`id_ficha`) REFERENCES `actividad` (`id_ficha`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `ficha_ibfk_1` FOREIGN KEY (`id_jor`) REFERENCES `jornada` (`id_jor`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `instructor`
@@ -380,7 +443,8 @@ ALTER TABLE `instructor_ficha`
 -- Filtros para la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`rol_id`) REFERENCES `rol_id` (`rol_id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`rol_id`) REFERENCES `rol_id` (`rol_id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `usuario_ibfk_2` FOREIGN KEY (`ciu_codigo`) REFERENCES `ciudad` (`ciu_codigo`) ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

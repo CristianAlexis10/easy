@@ -16,6 +16,50 @@ class InstructorModel{
     }
     return $result;
   }
+  function informacionInstructor($data){
+    try {
+      $sql="SELECT * FROM usuario INNER JOIN rol_id ON usuario.rol_id = rol_id.rol_id INNER JOIN instructor ON usuario.usu_codigo = instructor.usu_codigo  WHERE usuario.usu_codigo = ? ";
+      $query=$this->pdo->prepare($sql);
+      $query->execute(array($data));
+      $result = $query->fetch(PDO::FETCH_BOTH);
+    } catch (Exception $e) {
+      $result = $e->getMessage();
+    }
+    return $result;
+  }
+  function fichasInstructor($data){
+    try {
+      $sql="SELECT * FROM  instructor_ficha  WHERE instructor_ficha.id_ins = ? ";
+      $query=$this->pdo->prepare($sql);
+      $query->execute(array($data));
+      $result = $query->fetchAll(PDO::FETCH_BOTH);
+    } catch (Exception $e) {
+      $result = $e->getMessage();
+    }
+    return $result;
+  }
+  function fichasAprendiz($data){
+    try {
+      $sql="SELECT * FROM   aprendizxficha    WHERE aprendizxficha.id_aprendiz= ? ";
+      $query=$this->pdo->prepare($sql);
+      $query->execute(array($data));
+      $result = $query->fetchAll(PDO::FETCH_BOTH);
+    } catch (Exception $e) {
+      $result = $e->getMessage();
+    }
+    return $result;
+  }
+  function informacionAprendiz($data){
+    try {
+      $sql="SELECT * FROM usuario INNER JOIN rol_id ON usuario.rol_id = rol_id.rol_id INNER JOIN aprendiz ON usuario.usu_codigo = aprendiz.usu_codigo WHERE usuario.usu_codigo = ? ";
+      $query=$this->pdo->prepare($sql);
+      $query->execute(array($data));
+      $result = $query->fetch(PDO::FETCH_BOTH);
+    } catch (Exception $e) {
+      $result = $e->getMessage();
+    }
+    return $result;
+  }
   function selectIns($data){
     try {
       $sql="SELECT * FROM instructor WHERE usu_codigo = ? ";
