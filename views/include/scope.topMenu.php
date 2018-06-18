@@ -9,17 +9,28 @@
 </div>
 <div id="modalSearch" class="wrapModal">
   <div class="modal">
-    <form class="formSearch" action="index.html" method="post">
+    <form class="formSearch" id="newFicha">
       <div class="title">
-        <h1>Buscar</h1>
+        <h1>Nueva Ficha</h1>
         <span id="closeSearch">X</span>
       </div>
       <div class="wrapInput">
-        <input type="text" required name="" value="">
-        <label for="">Buscar</label>
+        <input type="text" required id="nombre" value="">
+        <label for="">Nombre </label>
       </div>
       <div class="wrapInput">
-        <button type="button" name="button">buscar</button>
+        <input type="text" required id="ficha" value="">
+        <label for="">Numero </label>
+      </div>
+      <div class="wrapInput">
+        <select  id="jornada">
+          <option value="1">Mañana</option>
+          <option value="2">Mixta</option>
+          <option value="3">Nocturna</option>
+        </select>
+      </div>
+      <div class="wrapInput">
+        <button type="submit" name="button">Agregar</button>
       </div>
     </form>
   </div>

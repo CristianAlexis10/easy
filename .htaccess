@@ -22,3 +22,10 @@ RewriteRule ^asignar_ficha_instructor$ index.php?c=instructor&a=asigar_fichasSav
 RewriteRule ^terminar_registro$ index.php?c=instructor&a=endRegister
 RewriteRule ^terminar_registro_aprendiz$ index.php?c=aprendiz&a=endRegister
 RewriteRule ^asignar_ficha_aprendiz_$ index.php?c=aprendiz&a=asigar_fichasSave
+
+
+RewriteRule ^fichas$ index.php?c=fichas
+RewriteRule ^editar-ficha-(\w+)$ index.php?c=fichas&a=viewUpdate&data=$1
+RewriteRule ^modificar_ficha$ index.php?c=fichas&a=update
+RewriteRule ^eliminar_ficha$ index.php?c=fichas&a=delete
+RewriteRule ^nueva_ficha$ index.php?c=fichas&a=newRegister

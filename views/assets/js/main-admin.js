@@ -124,6 +124,52 @@ $("#endRegister").click(function(){
     });
   }
 });
+$("#modificarFicha").submit(function(e){
+  e.preventDefault();
+  if (confirm("¿Modificar este registro?")) {
+    if ($("#nombre").val() != "") {
+          $.ajax({
+            url:"modificar_ficha",
+            type:"post",
+            dataType:"json",
+            data:({nombre:$("#nombre").val(),jornada: $("#jornada").val() , ficha:$("#ficha").val()}),
+            success:function(result){
+              if (result==true) {
+                location.href ="fichas";
+              }else{
+                alert(result);
+              }
+            },
+            error:function(result){console.log(result);}
+          });
+
+    }else{
+      alert("Campos requeridos.");
+    }
+  }
+});
+$("#newFicha").submit(function(e){
+  e.preventDefault();
+    if ($("#nombre").val() != "") {
+          $.ajax({
+            url:"nueva_ficha",
+            type:"post",
+            dataType:"json",
+            data:({nombre:$("#nombre").val(),jornada: $("#jornada").val() , ficha:$("#ficha").val()}),
+            success:function(result){
+              if (result==true) {
+                location.href ="fichas";
+              }else{
+                alert(result);
+              }
+            },
+            error:function(result){console.log(result);}
+          });
+
+    }else{
+      alert("Campos requeridos.");
+    }
+});
 $("#endRegisterAprendiz").click(function(){
   if (confirm("¿Terminar registro?")) {
     $.ajax({
@@ -141,6 +187,24 @@ $("#endRegisterAprendiz").click(function(){
     });
   }
 });
+function eliminar_ficha(id){
+  if (confirm("eliminar registro?")) {
+    $.ajax({
+      url:"eliminar_ficha",
+      type:"post",
+      dataType:"json",
+      data:({id:id}),
+      success:function(result){
+        if (result==true) {
+          location.href ="fichas";
+        }else{
+          alert(result);
+        }
+      },
+      error:function(result){console.log(result);}
+    });
+  }
+}
 
 $("#UpdateUser").submit(function(e){
   e.preventDefault();
