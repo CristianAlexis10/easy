@@ -180,6 +180,44 @@ $("#UpdateUser").submit(function(e){
     setTimeout(function(){$("div.message").remove();},4000);
   }
 });
+$("#UpdateUserProfile").submit(function(e){
+  e.preventDefault();
+  if ($("#documento").val() != "" && $("#nombre1").val() != "" && $("#apellido").val() != "" && $("#correo").val() != "" && $("#celular").val() != "" && $("#direccion").val() != "") {
+    var data = [];
+    data.push($("#documento").val());
+    data.push($("#nombre1").val());
+    data.push($("#nombre2").val());
+    data.push($("#apellido").val());
+    data.push($("#apellido2").val());
+    data.push($("#correo").val());
+    data.push($("#celular").val());
+    data.push($("#ciudad").val());
+    data.push($("#direccion").val());
+    data.push($("#tipodoc").val());
+    data.push($("#id").val());
+    console.log(data);
+    $.ajax({
+      url:"modificarUser",
+      type:"post",
+      dataType:"json",
+      data:({data:data,se:1}),
+      success:function(result){
+        console.log(result);
+        if (result==true) {
+            alert("Modificacion Exitosa.");
+            location.href="dashboard";
+        }else{
+        alert(result);
+        }
+      },
+      error:function(result){console.log(result);}
+    });
+  }else{
+    $("div.message").remove();
+    $("#newUser").after("<div class='message'>Todos los campos son requeridos.</div>");
+    setTimeout(function(){$("div.message").remove();},4000);
+  }
+});
 
 function inactivar_usuario(user){
   console.log(user);

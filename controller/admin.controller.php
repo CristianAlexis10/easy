@@ -99,6 +99,10 @@ class AdminController{
     if ($data[0]!="" && $data[1]!="" && $data[3]!="" && $data[5]!="" && $data[8]!="") {
         if (preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/",$data[5])){
             $result = $this->ins->modificarUsuario($data);
+            if (isset($_POST['se'])) {
+              $_SESSION['USER']['NAME']=$data[1];
+              $_SESSION['USER']['LAST_NAME']=$data[3];
+            }
             echo json_encode($result);
         }else{
           echo json_encode("formato del correo no valido");
