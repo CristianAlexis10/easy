@@ -7,21 +7,24 @@
   <table class="datatable">
         <thead>
             <tr>
-                <th>#</th>
+                <th>N°</th>
                 <th>nombre ficha</th>
-                <th>ficha</th>
-                <th>accion</th>
+                <th>Jornada</th>
+                <th>ver </th>
             </tr>
         </thead>
         <tbody>
+          <?php
+            foreach ($fichas as $row) { ?>
               <tr>
-                <td>1</td>
-                <td>hacer algo que tiene que ver con algo</td>
-                <td>1355155</td>
+                <td><?php echo $row['id_ficha']?></td>
+                <td><?php  echo $row['nom_ficha']?></td>
+                <td><?php  echo $row['nom_jor']?></td>
                 <td>
-                  <a href="ver-asistencia-"><i class="fas fa-eye"></i></a>
+                  <a href="ver-aprendiz-ficha-<?php  echo $row['id_ficha']?>"><i class="fas fa-eye"></i></a>
                 </td>
               </tr>
+              <?php }   ?>
         </tbody>
       </table>
     </div>

@@ -11,6 +11,8 @@ class FichasController{
       require_once "views/modules/admin/fichas/index.php";
       require_once "views/include/scope.footer.php";
     }else if (isset($_SESSION['USER']['ROL']) && $_SESSION['USER']['ROL']==2 ){
+      $data = $this->ficha->informacionInstructor($_SESSION['USER']['ID']);
+      $fichas = $this->ficha->selectAllBy($data['id_ins']);
       require_once "views/include/docente/scope.header.php";
       require_once "views/modules/docente/fichas/index.php";
       require_once "views/include/docente/scope.footer.php";
@@ -52,6 +54,9 @@ class FichasController{
     $result = $this->ficha->newRegister(array($_POST['ficha'],$_POST['nombre'],$_POST['jornada']));
     echo json_encode($result);
   }
+
+
+
 
 }
 ?>
