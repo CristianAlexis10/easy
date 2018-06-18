@@ -25,6 +25,7 @@ ul a li i{
 /* TODO: standar input */
 .wrapInput{
   position: relative;
+  margin: 10px auto;
   width: 90%;
 }
 .wrapInput p{
@@ -37,6 +38,7 @@ ul a li i{
   bottom: 7px;
   font-family: var(--Lato);
   font-size: 16px;
+  text-transform: capitalize;
   color: #888888;
   transition: .3s;
   cursor: text;
@@ -50,7 +52,22 @@ ul a li i{
 .wrapInput input:focus ~ label,.wrapInput input:valid ~ label{
   transform: translateY(-25px);
   color: #576574;
-  display: none;
+  font-size: 14px;
+}
+.wrapInput button{
+  width: 97%;
+  margin: 0px;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  border: 1px solid #576574;
+  border-radius: 5px;
+  background: none;
+  cursor: pointer;
+  transition: .2s;
+}
+.wrapInput button:hover{
+  background: #576574;
+  color: #fff;
 }
 /* TODO: standar modal */
 .wrapModal{
@@ -176,4 +193,33 @@ table,th,tr,thead,tbody,td{
 }
 td i{
   color: #000;
+}
+/* TODO: estilo actividad */
+.formActivity{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 5px;
+  padding-top: 30px;
+  border-top: 1px solid #c6c6c6;
+}
+.contentUser .wrapInput select{
+  width: 97%;
+  padding: 6px;
+  border-radius: 4px;
+  text-transform: capitalize;
+  color: #888888;
+  font-family: var(--Lato);
+}
+.wrapDate{
+  width: 90%;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-around;
+}
+.wrapDate .wrapInput{
+  width: 95%;
+}
+.wrapDate .wrapInput input{
+  width: 85%;
 }
