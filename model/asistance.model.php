@@ -14,7 +14,7 @@ class AsistanceModel{
   }
   function seleccionarAsistentes($data){
     try {
-      $sql = "SELECT usuario.usu_codigo FROM asistencia  INNER JOIN aprendiz ON asistencia.id_apren = aprendiz.id_apren INNER JOIN usuario ON aprendiz.usu_codigo=usuario.usu_codigo WHERE  id_actividad = ?";
+      $sql = "SELECT aprendiz.id_apre,usuario.usu_codigo FROM asistencia  INNER JOIN aprendiz ON asistencia.id_apren = aprendiz.id_apre INNER JOIN usuario ON aprendiz.usu_codigo=usuario.usu_codigo WHERE  id_actividad = ?";
       $query = $this->pdo->prepare($sql);
       $query->execute($data);
       $result = $query->fetchAll(PDO::FETCH_BOTH);
@@ -26,9 +26,9 @@ class AsistanceModel{
   }
   function infoUser($data){
     try {
-      $sql = "SELECT * FROM usuario WHERE  usu_codigo = ?";
+      $sql = "SELECT * FROM usuario   INNER JOIN aprendiz ON usuario.usu_codigo=aprendiz.usu_codigo WHERE usuario.usu_codigo = ?";
       $query = $this->pdo->prepare($sql);
-      $query->execute($data);
+      $query->execute(array($data));
       $result = $query->fetch(PDO::FETCH_BOTH);
 
     } catch (Exception $e) {
@@ -36,5 +36,17 @@ class AsistanceModel{
     }
     return $result;
   }
+  function addAsistencia($data){
+    try {
+      $sql = "INSERT INTO asistencia VALUES (?,?,?)";
+      $query = $this->pdo->prepare($sql);
+      $query->execute($data);
+      $result = true;
+    } catch (Exception $e) {
+      $result =$e->getMessage();
+    }
+    return $result;
+  }
+
 }
 ?>

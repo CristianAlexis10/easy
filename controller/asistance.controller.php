@@ -23,25 +23,30 @@ class AsistanceController{
       header("Location: inicio");
     }
   }
-  function agregarAlListado(){
+  function add(){
     date_default_timezone_set("America/Bogota");
     $data = base64_decode($_POST['data']);
     $data = json_decode($data, true);
     if (is_array($data)) {
       if (isset($data['user_easy']) && $data['user_easy'] == true) {
         $user_id = base64_decode($data['id']);
+        $userData = $this->asis->infoUser($user_id);
         $usersAsis = $this->asis->seleccionarAsistentes(array($_SESSION['ACTIVIDAD']));
-        if (in_array($user_id,$usersAsis)) {
+        $user_assis_real = array();
+        foreach ($usersAsis as $row) {
+          $user_assis_real[] = $row['id_apre'];
+        }
+        // die(json_encode($user_assis_real));
+        if (in_array($userData['id_apre'],$user_assis_real)) {
             echo json_encode("Este aprendiz ya ha sido registrado.");
         }else{
           $hora = date("G:i");
-          $result = $this->asis->addAsistencia(array($_SESSION['ACTIVIDAD'],$user_id,$hora));
+          $result = $this->asis->addAsistencia(array($_SESSION['ACTIVIDAD'],$userData['id_apre'],$hora));
           if ($result==1) {
-            $userData = $this->asis->infoUser($user_id);
             $hora_format = strtotime($hora);
             $hora_format= date("g:i", $hora_format);
             $id = base64_decode($data['id']);
-            $data = array("user"=>true,"name"=>$userData['usu_nombre'],"last_name"=>$userData['usu_apellido'],"hora"=>$hora_format,"id"=>$user_id);
+            $data = array("user"=>true,"name"=>$userData['usu_nombre'],"last_name"=>$userData['usu_apellido'],"hora"=>$hora_format,"id"=>$userData['id_apre']);
             echo json_encode($data);
           }else{
             echo json_encode("Ocurrio un error. ".$result);

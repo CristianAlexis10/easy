@@ -33,8 +33,8 @@
 						dataType:"json",
 						data:({data:text}),
 						success:function(result){
+							console.log(result);
 							if (result['user']==true) {
-									console.log(result);
 									si.attr('src', imgSrc);
 									sQ.append("<div class='list-assistance'>"+result["name"]+" "+result["last_name"]+"<span class='time'> ("+result["hora"]+")</span></div>");
 									sl.fadeOut(150, function() {
