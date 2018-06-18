@@ -148,6 +148,31 @@ $("#modificarFicha").submit(function(e){
     }
   }
 });
+$("#newAct").submit(function(e){
+  e.preventDefault();
+  if (confirm("¿Registrar esta actividad?")) {
+    if ($("#nombre").val() != "") {
+          $.ajax({
+            url:"crear_actividad",
+            type:"post",
+            dataType:"json",
+            data:({nombre:$("#nombre").val(),ficha: $("#ficha").val()}),
+            success:function(result){
+              console.log(result);
+              if (result==true) {
+                location.href ="llamar_asistencia";
+              }else{
+                alert(result);
+              }
+            },
+            error:function(result){console.log(result);}
+          });
+
+    }else{
+      alert("Campos requeridos.");
+    }
+  }
+});
 $("#newFicha").submit(function(e){
   e.preventDefault();
     if ($("#nombre").val() != "") {

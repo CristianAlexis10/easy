@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-06-2018 a las 03:39:29
+-- Tiempo de generación: 18-06-2018 a las 20:00:01
 -- Versión del servidor: 10.1.8-MariaDB
 -- Versión de PHP: 5.6.14
 
@@ -53,11 +53,16 @@ CREATE TABLE `actividad` (
   `id_act` int(11) NOT NULL,
   `nom_act` varchar(100) DEFAULT NULL,
   `fecha_realizacion` date NOT NULL,
-  `hora_inicio` time NOT NULL,
-  `hora_fin` time NOT NULL,
   `id_ins` int(11) NOT NULL,
-  `id_ficha` bigint(11) NOT NULL
+  `id_ficha` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `actividad`
+--
+
+INSERT INTO `actividad` (`id_act`, `nom_act`, `fecha_realizacion`, `id_ins`, `id_ficha`) VALUES
+(10, 'dompi', '2018-06-18', 2, 1355152);
 
 -- --------------------------------------------------------
 
@@ -144,7 +149,7 @@ CREATE TABLE `ficha` (
 --
 
 INSERT INTO `ficha` (`id_ficha`, `nom_ficha`, `id_jor`) VALUES
-(1355152, 'adsi', 2),
+(1355152, 'adsiii', 2),
 (1355155, 'ADSI\r\n', 2);
 
 -- --------------------------------------------------------
@@ -357,7 +362,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `actividad`
 --
 ALTER TABLE `actividad`
-  MODIFY `id_act` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_act` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `aprendiz`
 --
@@ -397,8 +402,8 @@ ALTER TABLE `acceso`
 -- Filtros para la tabla `actividad`
 --
 ALTER TABLE `actividad`
-  ADD CONSTRAINT `actividad_ibfk_1` FOREIGN KEY (`id_ins`) REFERENCES `instructor_ficha` (`id_ins`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `actividad_ibfk_2` FOREIGN KEY (`id_ficha`) REFERENCES `ficha` (`id_ficha`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `actividad_ibfk_3` FOREIGN KEY (`id_ins`) REFERENCES `instructor` (`id_ins`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `actividad_ibfk_4` FOREIGN KEY (`id_ficha`) REFERENCES `ficha` (`id_ficha`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `aprendiz`

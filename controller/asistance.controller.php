@@ -1,9 +1,9 @@
 <?php
 require_once "model/asistance.model.php";
 class AsistanceController{
-  private $login;
+  private $asis;
   function __CONSTRUCT(){
-    $this->login = new LoginModel();
+    $this->asis = new AsistanceModel();
   }
   function view(){
     if (isset($_SESSION['USER']['ROL']) && $_SESSION['USER']['ROL']==1 ) {
@@ -22,6 +22,10 @@ class AsistanceController{
     }else{
       header("Location: inicio");
     }
+  }
+  function selectAllFichas(){
+    $result = $this->asis->selectAllFichas();
+    return $result;
   }
 
 }

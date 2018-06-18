@@ -2,28 +2,18 @@
   <div class="title">
     <h1>asistencia</h1>
   </div>
-    <form class="formActivity" action="index.html" method="post">
+    <form class="formActivity" id="newAct">
       <div class="wrapInput">
-        <input required type="text" name="" value="">
+        <input required type="text" id="nombre" value="">
         <label for="">actividad</label>
       </div>
-      <div class="wrapDate">
-        <div class="wrapInput">
-          <input required type="text" name="" value="">
-          <label for="">hora inicio</label>
-        </div>
-        <div class="wrapInput">
-          <input required type="text" name="" value="">
-          <label for="">hora fin</label>
-        </div>
-        <div class="wrapInput">
-          <input required type="text" name="" value="">
-          <label for="">fecha</label>
-        </div>
-      </div>
       <div class="wrapInput">
-        <select class="" name="">
-          <option value="">fichas</option>
+        <select id="ficha">
+          <?php
+            foreach ($this->selectAllFichas() as $row) {
+              echo "<option value='".$row['id_ficha']."'>".$row['nom_ficha']."(".$row['id_ficha'].")</option>";
+            }
+          ?>
         </select>
       </div>
       <div class="wrapInput">

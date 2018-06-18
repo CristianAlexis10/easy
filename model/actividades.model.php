@@ -12,6 +12,28 @@ class ActividadesModel{
     $result = $query->fetchAll(PDO::FETCH_BOTH);
     return $result;
   }
+  function crear($data){
+    try {
+      $sql = "INSERT INTO actividad (nom_act,fecha_realizacion,id_ins,id_ficha) VALUES (?,?,?,?)";
+      $query = $this->pdo->prepare($sql);
+      $query->execute($data);
+      $result = true;
+    } catch (Exception $e) {
+      $result = $e->getMessage();
+    }
+    return $result;
+  }
+  function selectActividad($data){
+    try {
+      $sql = "SELECT * FROM actividad WHERE nom_act = ? AND fecha_realizacion = ? AND id_ficha = ?";
+      $query = $this->pdo->prepare($sql);
+      $query->execute($data);
+      $result = $query->fetch(PDO::FETCH_BOTH);
+    } catch (Exception $e) {
+      $result = $e->getMessage();
+    }
+    return $result;
+  }
   function informacionInstructor($data){
     try {
       $sql="SELECT * FROM usuario INNER JOIN rol_id ON usuario.rol_id = rol_id.rol_id INNER JOIN instructor ON usuario.usu_codigo = instructor.usu_codigo INNER JOIN ciudad ON usuario.ciu_codigo=ciudad.ciu_codigo WHERE usuario.usu_codigo = ? ";

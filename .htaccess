@@ -32,3 +32,6 @@ RewriteRule ^eliminar_ficha$ index.php?c=fichas&a=delete
 RewriteRule ^nueva_ficha$ index.php?c=fichas&a=newRegister
 
 RewriteRule ^actividades$ index.php?c=actividades
+
+RewriteRule ^crear_actividad$ index.php?c=actividades&a=newRegister
+RewriteRule ^llamar_asistencia$ index.php?c=actividades&a=llamar_asistencia
