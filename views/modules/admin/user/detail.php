@@ -39,5 +39,12 @@
         <span><?php echo $informacion['usu_estado']; ?></span>
       </div>
     </div>
+    <?php if ( $informacion['rol_nombre']=="Aprendiz") {?>
+      <div class="wrapInfo">
+        <label>Codigo de ingreso (QR):</label>
+        <span>  <a href="#" onclick="update_qrcode(Base64.encode('<?php echo $informacion['usu_codigo'];?>'),<?php echo $informacion['usu_identificacion'];  ?>)">Generar Codigo</a> </span>
+      </div>
+      <div id="qr"></div>
+    <?php }?>
   </div>
 </div>

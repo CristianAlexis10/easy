@@ -8,5 +8,8 @@
     </script>
     <script src="views/assets/js/main-admin.js"></script>
     <script src="views/assets/js/main-user.js"></script>
+    <script type="text/javascript" src="views/assets/js/generador/qrcode.js"></script>
+    <script type="text/javascript" src="views/assets/js/generador/base64.js"></script>
+    <script type="text/javascript" src="views/assets/js/generador/main.js"></script>
   </body>
 </html>
