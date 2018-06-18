@@ -63,9 +63,13 @@ class AdminController{
       $dataUser = $this->AllInfo($_GET['data']);
     $informacion = $dataUser[0];
     $fichas = $dataUser[1];
-      // require_once "views/include/scope.header.php";
+    $ficha ="";
+    foreach ($fichas as $row) {
+      $ficha .=$row['id_ficha']."-";
+    }
+      require_once "views/include/scope.header.php";
       require_once "views/modules/admin/user/detail.php";
-      // require_once "views/include/scope.footer.php";
+      require_once "views/include/scope.footer.php";
     }else{
       header("Location: inicio");
     }
