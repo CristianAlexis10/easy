@@ -16,25 +16,31 @@
       <?php require ("views/include/docente/scope.leftMenu.php"); ?>
 <div class="contentUser">
   <div class="container-fluid">
-          <div>
-              <button id="play"  type="button" class="btn">play</button>
-              <button id="stop" type="button" class="btn">pausar</button>
-              <button id="stopAll" type="button" class="btn">Terminar</button>
-          </div>
           <div class="col-md-6">
               <div class="well">
-                  <canvas id="qr-canvas" width="320" height="240"></canvas>
+                  <div class="camera">
+                    <canvas id="qr-canvas" width="320" height="240"></canvas>
+                  </div>
+                  <div class="zoom">
                     <label id="zoom-value" width="100">Zoom: 2</label>
                     <input type="range" id="zoom" value="20" min="10" max="30" onchange="Page.changeZoom();"/>
+                  </div>
               </div>
+          </div>
+          <div class="optionModule">
+            <button id="play"  type="button" class="btn">play</button>
+            <button id="stop" type="button" class="btn">pausar</button>
+            <button id="stopAll" type="button" class="btn">Terminar</button>
           </div>
           <div class="col-md-6" >
                   <div class="well">
-                    <h3>Titulo resultado de aprendizaje</h3>
-                      <img id="scanned-img" src="views/assets/img/sena.png" width="240" height="240">
+                    <div class="wrapTitle">
+                        <h3>Titulo resultado de aprendizaje</h3>
+                        <img id="scanned-img" src="views/assets/img/sena.png" width="240" height="240">
+                      </div>
                       <div class="caption">
                         <h3>Asistencia a clase</h3>
-                        <p id="scanned-QR"></p>
+                        <p id="scanned-QR">julian david giraldo arias</p>
                       </div>
                   </div>
           </div>
