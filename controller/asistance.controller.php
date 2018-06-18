@@ -30,16 +30,22 @@ class AsistanceController{
     if (is_array($data)) {
       if (isset($data['user_easy']) && $data['user_easy'] == true) {
         $user_id = base64_decode($data['id']);
-        $user = 1;
-        if ($user_id==$user) {
+        $usersAsis = $this->asis->seleccionarAsistentes(array($_SESSION['ACTIVIDAD']));
+        if (in_array($user_id,$usersAsis)) {
             echo json_encode("Este aprendiz ya ha sido registrado.");
         }else{
           $hora = date("G:i");
-          $hora_format = strtotime($hora);
-          $hora_format= date("g:i", $hora_format);
-          $id = base64_decode($data['id']);
-          $data = array("user"=>true,"name"=>"nombre","last_name"=>"apellido","hora"=>$hora_format,"id"=>$user_id);
-          echo json_encode($data);
+          $result = $this->asis->addAsistencia(array($_SESSION['ACTIVIDAD'],$user_id,$hora));
+          if ($result==1) {
+            $userData = $this->asis->infoUser($user_id);
+            $hora_format = strtotime($hora);
+            $hora_format= date("g:i", $hora_format);
+            $id = base64_decode($data['id']);
+            $data = array("user"=>true,"name"=>$userData['usu_nombre'],"last_name"=>$userData['usu_apellido'],"hora"=>$hora_format,"id"=>$user_id);
+            echo json_encode($data);
+          }else{
+            echo json_encode("Ocurrio un error. ".$result);
+          }
         }
       }else{
         echo json_encode("Este codigo QR no es valido para este aplicativo");
