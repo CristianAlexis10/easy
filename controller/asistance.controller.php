@@ -24,11 +24,17 @@ class AsistanceController{
     }
   }
   function detail(){
-    if (isset($_SESSION['USER']['ROL']) && $_SESSION['USER']['ROL']==2 ) {
+    if (isset($_SESSION['USER']['ROL']) ) {
       $data = $this->actividad($_GET['data']);
-      require_once "views/include/docente/scope.header.php";
-      require_once "views/modules/docente/asistance/detail.php";
-      require_once "views/include/docente/scope.footer.php";
+      if ( $_SESSION['USER']['ROL']==2 ) {
+        require_once "views/include/docente/scope.header.php";
+        require_once "views/modules/docente/asistance/detail.php";
+        require_once "views/include/docente/scope.footer.php";
+      }else{
+        require_once "views/include/scope.header.php";
+        require_once "views/modules/docente/asistance/detail.php";
+        require_once "views/include/scope.footer.php";
+      }
     }else{
       header("Location: inicio");
     }

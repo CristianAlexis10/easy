@@ -4,6 +4,6 @@
           <h1>Bienvenido</h1>
         </div>
         <div class="textContent">
-          <p>(nombre docente)</p>
+          <p><?php echo $_SESSION['USER']['NAME']." ".$_SESSION['USER']['LAST_NAME']?></p>
         </div>
       </div>

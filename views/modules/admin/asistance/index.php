@@ -4,31 +4,28 @@
   </div>
   <div class="wrapTable">
 
-  <table class="datatable">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>nombre</th>
-                <th>apellido</th>
-                <th>ficha</th>
-                <th>accion</th>
-            </tr>
-        </thead>
-        <tbody>
-          <?php
-          $id = 1;
-           foreach ($this->readAll() as $row) { ?>
+    <table class="datatable">
+          <thead>
               <tr>
-                <td><?php echo $id;?></td>
-                <td><?php echo $row['usu_nombre'];?></td>
-                <td><?php echo $row['usu_apellido'];?></td>
-                <td><?php echo $row['usu_identificacion'];?></td>
-                <td>
-                  <a href="ver-asistencia-<?php echo $row['usu_codigo'];?>"><i class="fas fa-eye"></i></a>
-                </td>
+                  <th>Nombre actividad</th>
+                  <th>Fecha Realización </th>
+                  <th>Ficha</th>
+                  <th>Asistencia</th>
               </tr>
-          <?php $id++; }?>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <?php
+                foreach ($actividades as $row) {?>
+                  <tr>
+                    <td><?php echo $row['nom_act'];?></td>
+                    <td><?php echo $row['fecha_realizacion'];?></td>
+                    <td><?php echo $row['id_ficha'];?></td>
+                    <td>
+                      <a href="detalle-asistencia-<?php echo $row['id_act']?>"><i class="fas fa-eye"></i></a>
+                    </td>
+                  </tr>
+              <?php   }  ?>
+          </tbody>
+        </table>
     </div>
   </div>

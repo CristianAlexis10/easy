@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-06-2018 a las 20:00:01
+-- Tiempo de generación: 19-06-2018 a las 04:46:11
 -- Versión del servidor: 10.1.8-MariaDB
 -- Versión de PHP: 5.6.14
 
@@ -39,9 +39,8 @@ CREATE TABLE `acceso` (
 
 INSERT INTO `acceso` (`acc_token`, `acc_contra`, `acc_codigo`, `usu_codigo`) VALUES
 ('09294ce3814019acac495d055444c358', '$2y$10$/Na0FUGFVwRWG8iBtj.Pyu35CVt2mvFPIT3w78nbzlar1r.It2/hi', '', 14),
-('2236796a2c51ded4c4a5358d2177f6ef', '$2y$10$zKIZ2/4Ds0wx/TEfsdY/tuxfVW71CkcAcqQqivFw2dEb4OSc1ZAyy', '', 12),
 ('7ea297125cb6546b81665ed12baa2c81', '$2y$10$dc9UmeuleBCtPeDWireYLuQweqxG0oEgG4xIZi0OKp5AT0KcpMIme', '', 11),
-('jhgdasaddghhfdfghhgf', '$2y$10$qTD5VQmm/NYFKA6TeP0Yi.NCqBKGpXCCEFmr8hQcWSNHx.KBUaUie', '', 1);
+('jhgdasaddghhfdfghhgf', '$2y$10$/Na0FUGFVwRWG8iBtj.Pyu35CVt2mvFPIT3w78nbzlar1r.It2/hi', '', 1);
 
 -- --------------------------------------------------------
 
@@ -56,13 +55,6 @@ CREATE TABLE `actividad` (
   `id_ins` int(11) NOT NULL,
   `id_ficha` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `actividad`
---
-
-INSERT INTO `actividad` (`id_act`, `nom_act`, `fecha_realizacion`, `id_ins`, `id_ficha`) VALUES
-(10, 'dompi', '2018-06-18', 2, 1355152);
 
 -- --------------------------------------------------------
 
@@ -260,10 +252,9 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`usu_codigo`, `usu_identificacion`, `usu_nombre`, `usu_nombre2`, `usu_apellido`, `usu_apellido2`, `usu_correo`, `usu_celular`, `ciu_codigo`, `usu_direccion`, `rol_id`, `tipo_documento`, `usu_estado`) VALUES
-(1, 9904, 'Cristian', '', 'lopera', '', 'dompi@gmail.com', 1231232, 2, 'sadas', 1, 'Tarjeta de identidad', 'activo'),
-(11, 99043, 'cristian', 'alexis', 'l', 'b', 'cristian@gmail.com', 3233557660, 1, 'calle 95', 2, 'Cedula de ciudadania', 'activo'),
-(12, 123213, 'cristian', 'alexis', 'lopera', 'bedoya', 'cristian@gmail.com', 3233557660, 1, 'calle 95', 2, 'Cedula de ciudadania', 'activo'),
-(14, 324324, '3243', '324', '234', '34234', 'cristian@gmail.com', 324, 2, '234324', 3, 'Cedula de ciudadania', 'activo');
+(1, 1234, 'Luisa', '', 'agudelo', '', 'luisa@gmail.com', 1231232, 2, 'sadas', 1, 'Tarjeta de identidad', 'activo'),
+(11, 12345, 'instructor', '', 'sena', 'b', 'instructor@gmail.com', 324324, 1, 'calle 8', 2, 'Cedula de ciudadania', 'activo'),
+(14, 324324, 'aprendiz', '324', 'sena', '34234', 'aprendiz@gmail.com', 324, 2, '234324', 3, 'Cedula de ciudadania', 'activo');
 
 --
 -- Índices para tablas volcadas
@@ -362,7 +353,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `actividad`
 --
 ALTER TABLE `actividad`
-  MODIFY `id_act` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_act` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT de la tabla `aprendiz`
 --

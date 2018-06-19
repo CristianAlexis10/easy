@@ -5,7 +5,7 @@ RewriteRule ^validar-login$ index.php?c=auth&a=logIn
 #dashboard
 RewriteRule ^finalizar$ index.php?c=auth&a=logOut
 RewriteRule ^dashboard$ index.php?c=admin
-RewriteRule ^asistencia$ index.php?c=admin&a=assistance
+RewriteRule ^asistencia$ index.php?c=actividades
 RewriteRule ^ver-asistencia$ index.php?c=asistance
 RewriteRule ^perfil$ index.php?c=admin&a=profile
 RewriteRule ^ver-usuarios$ index.php?c=admin&a=viewUser

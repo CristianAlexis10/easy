@@ -12,6 +12,13 @@ class ActividadesModel{
     $result = $query->fetchAll(PDO::FETCH_BOTH);
     return $result;
   }
+  function selectAllByAdmin(){
+    $sql = "SELECT * FROM actividad ";
+    $query = $this->pdo->prepare($sql);
+    $query->execute();
+    $result = $query->fetchAll(PDO::FETCH_BOTH);
+    return $result;
+  }
   function crear($data){
     try {
       $sql = "INSERT INTO actividad (nom_act,fecha_realizacion,id_ins,id_ficha) VALUES (?,?,?,?)";
