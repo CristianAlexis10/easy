@@ -182,6 +182,10 @@ ul a li i{
   width: 100%;
   height: 100%;
 }
+.wrapTable p{
+  font-family: var(--Lato);
+  margin: 10px 0px;
+}
 table{
   width: 100%;
 }
