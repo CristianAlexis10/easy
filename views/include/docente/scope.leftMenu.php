@@ -8,6 +8,6 @@
   <ul>
     <a href="ver-asistencia"><li><i class="fas fa-clipboard-check"></i> asistencia</li></a>
     <a href="actividades"><li><i class="fas fa-chalkboard-teacher"></i> actividades</li></a>
-    <a href="fichas"><li><i class="fas fa-list-alt"></i> fichas</li></a>
+    <!-- <a href="fichas"><li><i class="fas fa-list-alt"></i> fichas</li></a> -->
   </ul>
 </div>

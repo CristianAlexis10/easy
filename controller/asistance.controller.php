@@ -23,6 +23,16 @@ class AsistanceController{
       header("Location: inicio");
     }
   }
+  function detail(){
+    if (isset($_SESSION['USER']['ROL']) && $_SESSION['USER']['ROL']==2 ) {
+      $data = $this->actividad($_GET['data']);
+      require_once "views/include/docente/scope.header.php";
+      require_once "views/modules/docente/asistance/detail.php";
+      require_once "views/include/docente/scope.footer.php";
+    }else{
+      header("Location: inicio");
+    }
+  }
   function add(){
     date_default_timezone_set("America/Bogota");
     $data = base64_decode($_POST['data']);
@@ -61,6 +71,14 @@ class AsistanceController{
   }
   function selectAllFichas(){
     $result = $this->asis->selectAllFichas();
+    return $result;
+  }
+  function readAssis($data){
+    $result = $this->asis->readAssis(array($data));
+    return $result;
+  }
+  function actividad($data){
+    $result = $this->asis->actividad($data);
     return $result;
   }
 

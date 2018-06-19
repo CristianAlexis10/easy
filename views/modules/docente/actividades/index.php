@@ -21,7 +21,7 @@
                         <td><?php echo $row['fecha_realizacion'];?></td>
                         <td><?php echo $row['id_ficha'];?></td>
                         <td>
-                          <a href="ver-asistencia-<?php echo $row['id_act']?>"><i class="fas fa-eye"></i></a>
+                          <a href="detalle-asistencia-<?php echo $row['id_act']?>"><i class="fas fa-eye"></i></a>
                         </td>
                       </tr>
                   <?php   }  ?>

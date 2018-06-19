@@ -36,3 +36,4 @@ RewriteRule ^actividades$ index.php?c=actividades
 RewriteRule ^crear_actividad$ index.php?c=actividades&a=newRegister
 RewriteRule ^llamar_asistencia$ index.php?c=actividades&a=llamar_asistencia
 RewriteRule ^agregarAlListado$ index.php?c=asistance&a=add
+RewriteRule ^detalle-asistencia-(\w+)$ index.php?c=asistance&a=detail&data=$1

@@ -12,6 +12,20 @@ class AsistanceModel{
     $result = $query->fetchAll(PDO::FETCH_BOTH);
     return $result;
   }
+  function readAssis($id){
+    $sql = "SELECT * FROM asistencia  INNER JOIN aprendiz ON asistencia.id_apren = aprendiz.id_apre INNER JOIN usuario ON aprendiz.usu_codigo=usuario.usu_codigo WHERE id_actividad = ?";
+    $query = $this->pdo->prepare($sql);
+    $query->execute($id);
+    $result = $query->fetchAll(PDO::FETCH_BOTH);
+    return $result;
+  }
+  function actividad($id){
+    $sql = "SELECT * FROM actividad   WHERE id_act = ?";
+    $query = $this->pdo->prepare($sql);
+    $query->execute(array($id));
+    $result = $query->fetch(PDO::FETCH_BOTH);
+    return $result;
+  }
   function seleccionarAsistentes($data){
     try {
       $sql = "SELECT aprendiz.id_apre,usuario.usu_codigo FROM asistencia  INNER JOIN aprendiz ON asistencia.id_apren = aprendiz.id_apre INNER JOIN usuario ON aprendiz.usu_codigo=usuario.usu_codigo WHERE  id_actividad = ?";
