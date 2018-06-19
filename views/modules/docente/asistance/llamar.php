@@ -40,7 +40,7 @@
                       </div>
                       <div class="caption">
                         <h3>Asistencia a clase</h3>
-                        <p id="scanned-QR">julian david giraldo arias</p>
+                        <p id="scanned-QR"></p>
                       </div>
                   </div>
           </div>
